@@ -1,0 +1,343 @@
+[gd_scene load_steps=114 format=3 uid="uid://dxr3hsboqbmvd"]
+
+[ext_resource type="PackedScene" uid="uid://db50r8o0g50uv" path="res://assets/kenney_minigolf-kit/Models/GLB format/corner.glb" id="14_b2qa4"]
+[ext_resource type="PackedScene" uid="uid://bfalc8v26oxtw" path="res://assets/kenney_minigolf-kit/Models/GLB format/crest.glb" id="15_4cbrs"]
+[ext_resource type="PackedScene" uid="uid://b4k1ukt5toovo" path="res://assets/kenney_minigolf-kit/Models/GLB format/end.glb" id="16_hlji8"]
+[ext_resource type="PackedScene" uid="uid://yajbk6xy6qt0" path="res://assets/kenney_minigolf-kit/Models/GLB format/flag-blue.glb" id="17_i2i5n"]
+[ext_resource type="PackedScene" uid="uid://nueibr6kblxb" path="res://assets/kenney_minigolf-kit/Models/GLB format/flag-green.glb" id="18_pkkns"]
+[ext_resource type="PackedScene" uid="uid://dbnqbltrcr1sn" path="res://assets/kenney_minigolf-kit/Models/GLB format/flag-large-blue.glb" id="19_piq8f"]
+[ext_resource type="PackedScene" uid="uid://c8judau3ud2jh" path="res://assets/kenney_minigolf-kit/Models/GLB format/flag-large-green.glb" id="20_35w25"]
+[ext_resource type="PackedScene" uid="uid://b388mci2cujuc" path="res://assets/kenney_minigolf-kit/Models/GLB format/flag-large-red.glb" id="21_s1411"]
+[ext_resource type="PackedScene" uid="uid://c7hwe34ycf6vo" path="res://assets/kenney_minigolf-kit/Models/GLB format/flag-red.glb" id="22_oivsg"]
+[ext_resource type="PackedScene" uid="uid://c7hahcafy6us8" path="res://assets/kenney_minigolf-kit/Models/GLB format/gap.glb" id="23_ytbtq"]
+[ext_resource type="PackedScene" uid="uid://vchxf5cfwwr0" path="res://assets/kenney_minigolf-kit/Models/GLB format/hill-corner.glb" id="24_v5y1q"]
+[ext_resource type="PackedScene" uid="uid://dmdk3fq7b2jri" path="res://assets/kenney_minigolf-kit/Models/GLB format/hill-round.glb" id="25_qi2fd"]
+[ext_resource type="PackedScene" uid="uid://8bce5udx1a25" path="res://assets/kenney_minigolf-kit/Models/GLB format/hill-square.glb" id="26_nahex"]
+[ext_resource type="PackedScene" uid="uid://bovkvm21woau5" path="res://assets/kenney_minigolf-kit/Models/GLB format/hole-open.glb" id="27_7reay"]
+[ext_resource type="PackedScene" uid="uid://c5sfxm2cfqu5u" path="res://assets/kenney_minigolf-kit/Models/GLB format/hole-round.glb" id="28_3na6r"]
+[ext_resource type="PackedScene" uid="uid://5ueyt17oq8gn" path="res://assets/kenney_minigolf-kit/Models/GLB format/hole-square.glb" id="29_a02tn"]
+[ext_resource type="PackedScene" uid="uid://chgj6b4vi5yto" path="res://assets/kenney_minigolf-kit/Models/GLB format/inner-corner.glb" id="30_u1hb7"]
+[ext_resource type="PackedScene" uid="uid://b2tt53xj68r2s" path="res://assets/kenney_minigolf-kit/Models/GLB format/narrow-block.glb" id="31_ho6lb"]
+[ext_resource type="PackedScene" uid="uid://dobwjkub6t0ce" path="res://assets/kenney_minigolf-kit/Models/GLB format/narrow-round.glb" id="32_yerfj"]
+[ext_resource type="PackedScene" uid="uid://dgnmav53kjclf" path="res://assets/kenney_minigolf-kit/Models/GLB format/narrow-square.glb" id="33_vghn4"]
+[ext_resource type="PackedScene" uid="uid://ko8miwf53kha" path="res://assets/kenney_minigolf-kit/Models/GLB format/obstacle-block.glb" id="34_5s1n1"]
+[ext_resource type="PackedScene" uid="uid://be6n5wjpojlam" path="res://assets/kenney_minigolf-kit/Models/GLB format/obstacle-diamond.glb" id="35_do1iv"]
+[ext_resource type="PackedScene" uid="uid://cpm5p7hcdh3h" path="res://assets/kenney_minigolf-kit/Models/GLB format/obstacle-triangle.glb" id="36_ju0pi"]
+[ext_resource type="PackedScene" uid="uid://b278hndhn5kd6" path="res://assets/kenney_minigolf-kit/Models/GLB format/open.glb" id="37_27v7x"]
+[ext_resource type="PackedScene" uid="uid://bymdgjsi333nr" path="res://assets/kenney_minigolf-kit/Models/GLB format/ramp-high.glb" id="38_rywce"]
+[ext_resource type="PackedScene" uid="uid://dv76ckdua204r" path="res://assets/kenney_minigolf-kit/Models/GLB format/ramp-large-side.glb" id="39_mx4mu"]
+[ext_resource type="PackedScene" uid="uid://2lbhq6ll4sxd" path="res://assets/kenney_minigolf-kit/Models/GLB format/ramp-large.glb" id="40_6ai06"]
+[ext_resource type="PackedScene" uid="uid://cgc4f6co4rbid" path="res://assets/kenney_minigolf-kit/Models/GLB format/ramp-low.glb" id="41_w1upj"]
+[ext_resource type="PackedScene" uid="uid://b5odv5es7gbkl" path="res://assets/kenney_minigolf-kit/Models/GLB format/ramp-medium.glb" id="42_h240m"]
+[ext_resource type="PackedScene" uid="uid://cuadqcobnh86g" path="res://assets/kenney_minigolf-kit/Models/GLB format/ramp-sharp.glb" id="43_dttjq"]
+[ext_resource type="PackedScene" uid="uid://0ydmt6gf5lp6" path="res://assets/kenney_minigolf-kit/Models/GLB format/ramp-side.glb" id="44_r65p4"]
+[ext_resource type="PackedScene" uid="uid://dvnoxjeh44v0m" path="res://assets/kenney_minigolf-kit/Models/GLB format/ramp-square.glb" id="45_6liga"]
+[ext_resource type="PackedScene" uid="uid://c745m2lpq82lm" path="res://assets/kenney_minigolf-kit/Models/GLB format/ramp.glb" id="46_4p60y"]
+[ext_resource type="PackedScene" uid="uid://dx2kf3ofwueyr" path="res://assets/kenney_minigolf-kit/Models/GLB format/round-corner-a.glb" id="47_m1qto"]
+[ext_resource type="PackedScene" uid="uid://bv73yov21lngt" path="res://assets/kenney_minigolf-kit/Models/GLB format/round-corner-b.glb" id="48_s2qkh"]
+[ext_resource type="PackedScene" uid="uid://cnq3tbw8a6p5o" path="res://assets/kenney_minigolf-kit/Models/GLB format/round-corner-c.glb" id="49_tno2c"]
+[ext_resource type="PackedScene" uid="uid://b8gqj1j6pwtp" path="res://assets/kenney_minigolf-kit/Models/GLB format/round-large-corner-open.glb" id="50_b741q"]
+[ext_resource type="PackedScene" uid="uid://li0yqwexut4p" path="res://assets/kenney_minigolf-kit/Models/GLB format/round-large-corner.glb" id="51_0wqrk"]
+[ext_resource type="PackedScene" uid="uid://cyl0tfnxcgyjo" path="res://assets/kenney_minigolf-kit/Models/GLB format/side.glb" id="52_4q7b7"]
+[ext_resource type="PackedScene" uid="uid://bw6nj25yjkgl0" path="res://assets/kenney_minigolf-kit/Models/GLB format/skew-corner.glb" id="53_q2g3f"]
+[ext_resource type="PackedScene" uid="uid://cxh2ghnmime5r" path="res://assets/kenney_minigolf-kit/Models/GLB format/skew-large-corner-open.glb" id="54_qrkni"]
+[ext_resource type="PackedScene" uid="uid://cpoy22dxsme8l" path="res://assets/kenney_minigolf-kit/Models/GLB format/skew-large-corner.glb" id="55_rfk1w"]
+[ext_resource type="PackedScene" uid="uid://cms0u027ipd05" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-cap-back.glb" id="56_w04j2"]
+[ext_resource type="PackedScene" uid="uid://b4bxf1ast3w5s" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-cap-front.glb" id="57_y5dwk"]
+[ext_resource type="PackedScene" uid="uid://chbvnmipm0y7o" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-corner-large-ramp.glb" id="58_mdpkg"]
+[ext_resource type="PackedScene" uid="uid://dl7jhbxs53bff" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-corner-large.glb" id="59_akpo3"]
+[ext_resource type="PackedScene" uid="uid://cgugcttgcv1is" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-corner-small-ramp.glb" id="60_3mjdc"]
+[ext_resource type="PackedScene" uid="uid://br4w4csvcwf6c" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-corner-small.glb" id="61_y127q"]
+[ext_resource type="PackedScene" uid="uid://n078b001d5a3" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-curve.glb" id="62_bvbmh"]
+[ext_resource type="PackedScene" uid="uid://dlavl7vxqrbvq" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-looping.glb" id="63_vaw7s"]
+[ext_resource type="PackedScene" uid="uid://85yckhp7gqit" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-straight-bend-large.glb" id="64_w27iq"]
+[ext_resource type="PackedScene" uid="uid://cx8qn013qrec4" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-straight-bend.glb" id="65_xbobx"]
+[ext_resource type="PackedScene" uid="uid://dh3d1ix7k6cx5" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-straight-bump-down.glb" id="66_fujro"]
+[ext_resource type="PackedScene" uid="uid://rnx3lmt1ew5w" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-straight-bump-up.glb" id="67_2q034"]
+[ext_resource type="PackedScene" uid="uid://b672qk8th00ak" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-straight-hill-beginning.glb" id="68_eucuo"]
+[ext_resource type="PackedScene" uid="uid://cyn1iqny4x4rn" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-straight-hill-complete-half.glb" id="69_1u8qa"]
+[ext_resource type="PackedScene" uid="uid://btk0awe1d1heu" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-straight-hill-complete.glb" id="70_qlovd"]
+[ext_resource type="PackedScene" uid="uid://7o3ljpnr5cjo" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-straight-hill-end.glb" id="71_qqrlm"]
+[ext_resource type="PackedScene" uid="uid://bejpmtcudgn44" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-straight-skew-left-side.glb" id="72_0dhx5"]
+[ext_resource type="PackedScene" uid="uid://bd8t5xttnt0el" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-straight-skew-left.glb" id="73_2ne08"]
+[ext_resource type="PackedScene" uid="uid://bhgx12dcibovm" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-straight-skew-right-side.glb" id="74_qy30v"]
+[ext_resource type="PackedScene" uid="uid://bsigxdo0rveas" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-straight-skew-right.glb" id="75_sfqy4"]
+[ext_resource type="PackedScene" uid="uid://dh3tj4o5l683m" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave-straight.glb" id="76_liqi6"]
+[ext_resource type="PackedScene" uid="uid://dqa61iay6pxm6" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-concave.glb" id="77_t6d66"]
+[ext_resource type="PackedScene" uid="uid://7ymo33k1352g" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-cap-back.glb" id="78_lkux8"]
+[ext_resource type="PackedScene" uid="uid://cud4s8ltj7q8m" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-cap-front.glb" id="79_4jpuv"]
+[ext_resource type="PackedScene" uid="uid://bdnvo0ticrfvx" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-corner-large-ramp.glb" id="80_dqfe0"]
+[ext_resource type="PackedScene" uid="uid://m3js1k6f0htr" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-corner-large.glb" id="81_eunp8"]
+[ext_resource type="PackedScene" uid="uid://hmtlld3m5vfj" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-corner-small-ramp.glb" id="82_6y8xr"]
+[ext_resource type="PackedScene" uid="uid://c4e8rlikreo47" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-corner-small.glb" id="83_qey2h"]
+[ext_resource type="PackedScene" uid="uid://nnxg6c3n4xgg" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-curve.glb" id="84_7iajy"]
+[ext_resource type="PackedScene" uid="uid://deieg4nptfkem" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-looping.glb" id="85_5kvo5"]
+[ext_resource type="PackedScene" uid="uid://dbowulhe5d6bi" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-straight-bend-large.glb" id="86_nmmeb"]
+[ext_resource type="PackedScene" uid="uid://ccswrnntdrhb" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-straight-bend.glb" id="87_lqbec"]
+[ext_resource type="PackedScene" uid="uid://cqu5iko5166v" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-straight-bump-down.glb" id="88_q8a65"]
+[ext_resource type="PackedScene" uid="uid://cxs37t5l52ksm" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-straight-bump-up.glb" id="89_44nd3"]
+[ext_resource type="PackedScene" uid="uid://0lohkcle23pi" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-straight-hill-beginning.glb" id="90_218t8"]
+[ext_resource type="PackedScene" uid="uid://dc2fq0a5dcdpp" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-straight-hill-complete-half.glb" id="91_lyqo3"]
+[ext_resource type="PackedScene" uid="uid://7q7b0er4k3q3" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-straight-hill-complete.glb" id="92_icrpw"]
+[ext_resource type="PackedScene" uid="uid://k2jvnsrq1yxa" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-straight-hill-end.glb" id="93_bqmfc"]
+[ext_resource type="PackedScene" uid="uid://br87gjjc63ak4" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-straight-skew-left-side.glb" id="94_ncry6"]
+[ext_resource type="PackedScene" uid="uid://5j3ycoq0ykek" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-straight-skew-left.glb" id="95_0mp2t"]
+[ext_resource type="PackedScene" uid="uid://388se2nx2ujb" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-straight-skew-right-side.glb" id="96_dty0w"]
+[ext_resource type="PackedScene" uid="uid://d02ua4lmtqypj" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-straight-skew-right.glb" id="97_q6m8h"]
+[ext_resource type="PackedScene" uid="uid://duujqtkn0t3fn" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default-straight.glb" id="98_cpjwq"]
+[ext_resource type="PackedScene" uid="uid://7dfs1pyo8ip0" path="res://assets/kenney_minigolf-kit/Models/GLB format/spline-default.glb" id="99_oh2ph"]
+[ext_resource type="PackedScene" uid="uid://dab43erahue1x" path="res://assets/kenney_minigolf-kit/Models/GLB format/split-start.glb" id="100_m1o2h"]
+[ext_resource type="PackedScene" uid="uid://w3rikopq3ma1" path="res://assets/kenney_minigolf-kit/Models/GLB format/split-t.glb" id="101_ww815"]
+[ext_resource type="PackedScene" uid="uid://02no6o526kga" path="res://assets/kenney_minigolf-kit/Models/GLB format/split-walls-to-open.glb" id="102_embv0"]
+[ext_resource type="PackedScene" uid="uid://dcj078p2r3a5" path="res://assets/kenney_minigolf-kit/Models/GLB format/split.glb" id="103_i8t6b"]
+[ext_resource type="PackedScene" uid="uid://v3eoary8mibu" path="res://assets/kenney_minigolf-kit/Models/GLB format/square-corner-a.glb" id="104_e060c"]
+[ext_resource type="PackedScene" uid="uid://b0syksjeucomm" path="res://assets/kenney_minigolf-kit/Models/GLB format/start.glb" id="105_g8a05"]
+[ext_resource type="PackedScene" uid="uid://cwtuwp1uuwsax" path="res://assets/kenney_minigolf-kit/Models/GLB format/straight.glb" id="106_iyb3j"]
+[ext_resource type="PackedScene" uid="uid://xxeiv8taugeh" path="res://assets/kenney_minigolf-kit/Models/GLB format/structure-gate-building.glb" id="107_n5e61"]
+[ext_resource type="PackedScene" uid="uid://cf4xcfjslpu04" path="res://assets/kenney_minigolf-kit/Models/GLB format/structure-gate-wide.glb" id="108_gjk8k"]
+[ext_resource type="PackedScene" uid="uid://jbmkieqlrvls" path="res://assets/kenney_minigolf-kit/Models/GLB format/structure-gate.glb" id="109_ocbya"]
+[ext_resource type="PackedScene" uid="uid://clshh8bi6k7lg" path="res://assets/kenney_minigolf-kit/Models/GLB format/structure-gates.glb" id="110_bibw7"]
+[ext_resource type="PackedScene" uid="uid://bac5w0ukwve8e" path="res://assets/kenney_minigolf-kit/Models/GLB format/structure-windmill.glb" id="111_rr1pl"]
+[ext_resource type="PackedScene" uid="uid://cnl3pow2slh4s" path="res://assets/kenney_minigolf-kit/Models/GLB format/support-bottom.glb" id="112_fom46"]
+[ext_resource type="PackedScene" uid="uid://dwgli6mxo40nd" path="res://assets/kenney_minigolf-kit/Models/GLB format/support-low-bottom.glb" id="113_ysp46"]
+[ext_resource type="PackedScene" uid="uid://cro3iy052cmh5" path="res://assets/kenney_minigolf-kit/Models/GLB format/support-low.glb" id="114_fn7st"]
+[ext_resource type="PackedScene" uid="uid://cnxhbqr5msv12" path="res://assets/kenney_minigolf-kit/Models/GLB format/support.glb" id="115_rpg2g"]
+[ext_resource type="PackedScene" uid="uid://cj5wayrvdmtlo" path="res://assets/kenney_minigolf-kit/Models/GLB format/supports-bottom.glb" id="116_g725w"]
+[ext_resource type="PackedScene" uid="uid://bo4uorjjf7y8t" path="res://assets/kenney_minigolf-kit/Models/GLB format/supports-low-bottom.glb" id="117_e5kww"]
+[ext_resource type="PackedScene" uid="uid://bksapnm706kal" path="res://assets/kenney_minigolf-kit/Models/GLB format/supports-low.glb" id="118_113w2"]
+[ext_resource type="PackedScene" uid="uid://cl6uvuatjbrba" path="res://assets/kenney_minigolf-kit/Models/GLB format/supports.glb" id="119_niqy5"]
+[ext_resource type="PackedScene" uid="uid://cwjsfbi25uk5d" path="res://assets/kenney_minigolf-kit/Models/GLB format/tunnel-double.glb" id="120_4q6u5"]
+[ext_resource type="PackedScene" uid="uid://cnn7pww7nybti" path="res://assets/kenney_minigolf-kit/Models/GLB format/tunnel-narrow.glb" id="121_5vh8s"]
+[ext_resource type="PackedScene" uid="uid://deu07q747ug38" path="res://assets/kenney_minigolf-kit/Models/GLB format/tunnel-wide.glb" id="122_am5ca"]
+[ext_resource type="PackedScene" uid="uid://ddvpkd68eewtr" path="res://assets/kenney_minigolf-kit/Models/GLB format/wall-left.glb" id="123_au7dc"]
+[ext_resource type="PackedScene" uid="uid://d0ek53d1o05nj" path="res://assets/kenney_minigolf-kit/Models/GLB format/wall-right.glb" id="124_07win"]
+[ext_resource type="PackedScene" uid="uid://baul1dt2tyop1" path="res://assets/kenney_minigolf-kit/Models/GLB format/walls-to-open.glb" id="125_a6h1d"]
+[ext_resource type="PackedScene" uid="uid://ufj2h6p0wkce" path="res://assets/kenney_minigolf-kit/Models/GLB format/windmill.glb" id="126_bongy"]
+
+[node name="grid" type="Node3D"]
+
+[node name="corner2" parent="." instance=ExtResource("14_b2qa4")]
+
+[node name="crest2" parent="." instance=ExtResource("15_4cbrs")]
+
+[node name="end2" parent="." instance=ExtResource("16_hlji8")]
+
+[node name="flag-blue2" parent="." instance=ExtResource("17_i2i5n")]
+
+[node name="flag-green2" parent="." instance=ExtResource("18_pkkns")]
+
+[node name="flag-large-blue2" parent="." instance=ExtResource("19_piq8f")]
+
+[node name="flag-large-green2" parent="." instance=ExtResource("20_35w25")]
+
+[node name="flag-large-red2" parent="." instance=ExtResource("21_s1411")]
+
+[node name="flag-red2" parent="." instance=ExtResource("22_oivsg")]
+
+[node name="gap2" parent="." instance=ExtResource("23_ytbtq")]
+
+[node name="hill-corner2" parent="." instance=ExtResource("24_v5y1q")]
+
+[node name="hill-round2" parent="." instance=ExtResource("25_qi2fd")]
+
+[node name="hill-square2" parent="." instance=ExtResource("26_nahex")]
+
+[node name="hole-open2" parent="." instance=ExtResource("27_7reay")]
+
+[node name="hole-round2" parent="." instance=ExtResource("28_3na6r")]
+
+[node name="hole-square2" parent="." instance=ExtResource("29_a02tn")]
+
+[node name="inner-corner2" parent="." instance=ExtResource("30_u1hb7")]
+
+[node name="narrow-block2" parent="." instance=ExtResource("31_ho6lb")]
+
+[node name="narrow-round2" parent="." instance=ExtResource("32_yerfj")]
+
+[node name="narrow-square2" parent="." instance=ExtResource("33_vghn4")]
+
+[node name="obstacle-block2" parent="." instance=ExtResource("34_5s1n1")]
+
+[node name="obstacle-diamond2" parent="." instance=ExtResource("35_do1iv")]
+
+[node name="obstacle-triangle2" parent="." instance=ExtResource("36_ju0pi")]
+
+[node name="open2" parent="." instance=ExtResource("37_27v7x")]
+
+[node name="ramp-high2" parent="." instance=ExtResource("38_rywce")]
+
+[node name="ramp-large-side2" parent="." instance=ExtResource("39_mx4mu")]
+
+[node name="ramp-large2" parent="." instance=ExtResource("40_6ai06")]
+
+[node name="ramp-low2" parent="." instance=ExtResource("41_w1upj")]
+
+[node name="ramp-medium2" parent="." instance=ExtResource("42_h240m")]
+
+[node name="ramp-sharp2" parent="." instance=ExtResource("43_dttjq")]
+
+[node name="ramp-side2" parent="." instance=ExtResource("44_r65p4")]
+
+[node name="ramp-square2" parent="." instance=ExtResource("45_6liga")]
+
+[node name="ramp2" parent="." instance=ExtResource("46_4p60y")]
+
+[node name="round-corner-a2" parent="." instance=ExtResource("47_m1qto")]
+
+[node name="round-corner-b2" parent="." instance=ExtResource("48_s2qkh")]
+
+[node name="round-corner-c2" parent="." instance=ExtResource("49_tno2c")]
+
+[node name="round-large-corner-open2" parent="." instance=ExtResource("50_b741q")]
+
+[node name="round-large-corner2" parent="." instance=ExtResource("51_0wqrk")]
+
+[node name="side2" parent="." instance=ExtResource("52_4q7b7")]
+
+[node name="skew-corner2" parent="." instance=ExtResource("53_q2g3f")]
+
+[node name="skew-large-corner-open2" parent="." instance=ExtResource("54_qrkni")]
+
+[node name="skew-large-corner2" parent="." instance=ExtResource("55_rfk1w")]
+
+[node name="spline-concave-cap-back2" parent="." instance=ExtResource("56_w04j2")]
+
+[node name="spline-concave-cap-front2" parent="." instance=ExtResource("57_y5dwk")]
+
+[node name="spline-concave-corner-large-ramp2" parent="." instance=ExtResource("58_mdpkg")]
+
+[node name="spline-concave-corner-large2" parent="." instance=ExtResource("59_akpo3")]
+
+[node name="spline-concave-corner-small-ramp2" parent="." instance=ExtResource("60_3mjdc")]
+
+[node name="spline-concave-corner-small2" parent="." instance=ExtResource("61_y127q")]
+
+[node name="spline-concave-curve2" parent="." instance=ExtResource("62_bvbmh")]
+
+[node name="spline-concave-looping2" parent="." instance=ExtResource("63_vaw7s")]
+
+[node name="spline-concave-straight-bend-large2" parent="." instance=ExtResource("64_w27iq")]
+
+[node name="spline-concave-straight-bend2" parent="." instance=ExtResource("65_xbobx")]
+
+[node name="spline-concave-straight-bump-down2" parent="." instance=ExtResource("66_fujro")]
+
+[node name="spline-concave-straight-bump-up2" parent="." instance=ExtResource("67_2q034")]
+
+[node name="spline-concave-straight-hill-beginning2" parent="." instance=ExtResource("68_eucuo")]
+
+[node name="spline-concave-straight-hill-complete-half2" parent="." instance=ExtResource("69_1u8qa")]
+
+[node name="spline-concave-straight-hill-complete2" parent="." instance=ExtResource("70_qlovd")]
+
+[node name="spline-concave-straight-hill-end2" parent="." instance=ExtResource("71_qqrlm")]
+
+[node name="spline-concave-straight-skew-left-side2" parent="." instance=ExtResource("72_0dhx5")]
+
+[node name="spline-concave-straight-skew-left2" parent="." instance=ExtResource("73_2ne08")]
+
+[node name="spline-concave-straight-skew-right-side2" parent="." instance=ExtResource("74_qy30v")]
+
+[node name="spline-concave-straight-skew-right2" parent="." instance=ExtResource("75_sfqy4")]
+
+[node name="spline-concave-straight2" parent="." instance=ExtResource("76_liqi6")]
+
+[node name="spline-concave2" parent="." instance=ExtResource("77_t6d66")]
+
+[node name="spline-default-cap-back2" parent="." instance=ExtResource("78_lkux8")]
+
+[node name="spline-default-cap-front2" parent="." instance=ExtResource("79_4jpuv")]
+
+[node name="spline-default-corner-large-ramp2" parent="." instance=ExtResource("80_dqfe0")]
+
+[node name="spline-default-corner-large2" parent="." instance=ExtResource("81_eunp8")]
+
+[node name="spline-default-corner-small-ramp2" parent="." instance=ExtResource("82_6y8xr")]
+
+[node name="spline-default-corner-small2" parent="." instance=ExtResource("83_qey2h")]
+
+[node name="spline-default-curve2" parent="." instance=ExtResource("84_7iajy")]
+
+[node name="spline-default-looping2" parent="." instance=ExtResource("85_5kvo5")]
+
+[node name="spline-default-straight-bend-large2" parent="." instance=ExtResource("86_nmmeb")]
+
+[node name="spline-default-straight-bend2" parent="." instance=ExtResource("87_lqbec")]
+
+[node name="spline-default-straight-bump-down2" parent="." instance=ExtResource("88_q8a65")]
+
+[node name="spline-default-straight-bump-up2" parent="." instance=ExtResource("89_44nd3")]
+
+[node name="spline-default-straight-hill-beginning2" parent="." instance=ExtResource("90_218t8")]
+
+[node name="spline-default-straight-hill-complete-half2" parent="." instance=ExtResource("91_lyqo3")]
+
+[node name="spline-default-straight-hill-complete2" parent="." instance=ExtResource("92_icrpw")]
+
+[node name="spline-default-straight-hill-end2" parent="." instance=ExtResource("93_bqmfc")]
+
+[node name="spline-default-straight-skew-left-side2" parent="." instance=ExtResource("94_ncry6")]
+
+[node name="spline-default-straight-skew-left2" parent="." instance=ExtResource("95_0mp2t")]
+
+[node name="spline-default-straight-skew-right-side2" parent="." instance=ExtResource("96_dty0w")]
+
+[node name="spline-default-straight-skew-right2" parent="." instance=ExtResource("97_q6m8h")]
+
+[node name="spline-default-straight2" parent="." instance=ExtResource("98_cpjwq")]
+
+[node name="spline-default2" parent="." instance=ExtResource("99_oh2ph")]
+
+[node name="split-start2" parent="." instance=ExtResource("100_m1o2h")]
+
+[node name="split-t2" parent="." instance=ExtResource("101_ww815")]
+
+[node name="split-walls-to-open2" parent="." instance=ExtResource("102_embv0")]
+
+[node name="split2" parent="." instance=ExtResource("103_i8t6b")]
+
+[node name="square-corner-a2" parent="." instance=ExtResource("104_e060c")]
+
+[node name="start2" parent="." instance=ExtResource("105_g8a05")]
+
+[node name="straight2" parent="." instance=ExtResource("106_iyb3j")]
+
+[node name="structure-gate-building2" parent="." instance=ExtResource("107_n5e61")]
+
+[node name="structure-gate-wide2" parent="." instance=ExtResource("108_gjk8k")]
+
+[node name="structure-gate2" parent="." instance=ExtResource("109_ocbya")]
+
+[node name="structure-gates2" parent="." instance=ExtResource("110_bibw7")]
+
+[node name="structure-windmill2" parent="." instance=ExtResource("111_rr1pl")]
+
+[node name="support-bottom2" parent="." instance=ExtResource("112_fom46")]
+
+[node name="support-low-bottom2" parent="." instance=ExtResource("113_ysp46")]
+
+[node name="support-low2" parent="." instance=ExtResource("114_fn7st")]
+
+[node name="support2" parent="." instance=ExtResource("115_rpg2g")]
+
+[node name="supports-bottom2" parent="." instance=ExtResource("116_g725w")]
+
+[node name="supports-low-bottom2" parent="." instance=ExtResource("117_e5kww")]
+
+[node name="supports-low2" parent="." instance=ExtResource("118_113w2")]
+
+[node name="supports2" parent="." instance=ExtResource("119_niqy5")]
+
+[node name="tunnel-double2" parent="." instance=ExtResource("120_4q6u5")]
+
+[node name="tunnel-narrow2" parent="." instance=ExtResource("121_5vh8s")]
+
+[node name="tunnel-wide2" parent="." instance=ExtResource("122_am5ca")]
+
+[node name="wall-left2" parent="." instance=ExtResource("123_au7dc")]
+
+[node name="wall-right2" parent="." instance=ExtResource("124_07win")]
+
+[node name="walls-to-open2" parent="." instance=ExtResource("125_a6h1d")]
+
+[node name="windmill2" parent="." instance=ExtResource("126_bongy")]
