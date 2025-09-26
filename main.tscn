@@ -1,16 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b00jhs717a2xq"]
+[gd_scene load_steps=2 format=3 uid="uid://b00jhs717a2xq"]
 
-[ext_resource type="Script" uid="uid://b4pk3sj4j6i7w" path="res://scripts/create_gridmap_resource.gd" id="1_0xm2m"]
-[ext_resource type="MeshLibrary" uid="uid://cug8elup03a0p" path="res://libraries/library.tres" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://8nyevg41em2x" path="res://scenes/grid_map.tscn" id="1_ig7tw"]
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("grid_map")]
-script = ExtResource("1_0xm2m")
-grid_map = NodePath("GridMap")
+[node name="Main" type="Node3D"]
 
-[node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("1_ig7tw")
-cell_size = Vector3(1, 1, 1)
-cell_center_y = false
-data = {
-"cells": PackedInt32Array(65534, 65535, 91, 65534, 65534, 11, 65534, 65533, 655392, 65534, 65532, 32, 65534, 65531, 655383, 65533, 65529, 655370, 65535, 65529, 1048586, 65535, 65531, 0, 65533, 65531, 1441792, 65533, 65530, 655398, 65535, 65530, 38, 65534, 65529, 1048614, 65534, 65530, 1048589)
-}
+[node name="GridMap" parent="." instance=ExtResource("1_ig7tw")]
