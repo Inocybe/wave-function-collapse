@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="WFCResource" load_steps=2 format=3 uid="uid://b20ol8du4tlr1"]
+
+[ext_resource type="Script" uid="uid://pt7s4xo68uvl" path="res://scripts/wfc_resource.gd" id="1_fyo7b"]
+
+[resource]
+script = ExtResource("1_fyo7b")
