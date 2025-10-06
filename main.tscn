@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://b00jhs717a2xq"]
+[gd_scene load_steps=3 format=3 uid="uid://b00jhs717a2xq"]
 
-[ext_resource type="PackedScene" uid="uid://8nyevg41em2x" path="res://scenes/grid_map.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dnbulenyen7fd" path="res://scripts/wfc.gd" id="2_h2yge"]
+[ext_resource type="Resource" uid="uid://b20ol8du4tlr1" path="res://resources/wfc_constraints.tres" id="3_1bvp3"]
 
 [node name="Main" type="Node3D"]
 
-[node name="GridMap" parent="." instance=ExtResource("1_ig7tw")]
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("grid_map")]
+script = ExtResource("2_h2yge")
+wfc_constraints = ExtResource("3_1bvp3")
+grid_map = NodePath("../GridMap")
+grid_size = Vector3(20, 2, 20)
+
+[node name="GridMap" type="GridMap" parent="."]
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false

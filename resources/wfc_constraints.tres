@@ -1,6 +1,114 @@
-[gd_resource type="Resource" script_class="WFCResource" load_steps=2 format=3 uid="uid://b20ol8du4tlr1"]
+[gd_resource type="Resource" script_class="WFCResource" load_steps=3 format=3 uid="uid://b20ol8du4tlr1"]
 
 [ext_resource type="Script" uid="uid://pt7s4xo68uvl" path="res://scripts/wfc_resource.gd" id="1_fyo7b"]
+[ext_resource type="MeshLibrary" uid="uid://cug8elup03a0p" path="res://libraries/library.tres" id="1_ux53u"]
 
 [resource]
 script = ExtResource("1_fyo7b")
+rules = {
+"corner": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["open"],
+3: ["Empty"],
+4: ["side"],
+5: ["Empty"]
+},
+"corner-270.0": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["open"],
+4: ["side-180.0"],
+5: ["Empty"]
+},
+"hill-corner-180.0": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["side-90.0"],
+4: ["Empty"],
+5: ["side-180.0"]
+},
+"hill-corner-90.0": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["side-90.0"],
+3: ["Empty"],
+4: ["Empty"],
+5: ["side"]
+},
+"hill-round": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["Empty"],
+4: ["ramp-180.0"],
+5: ["start"]
+},
+"hole-open": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["side-180.0"],
+3: ["side"],
+4: ["side-90.0"],
+5: ["open"]
+},
+"open": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["corner-270.0"],
+3: ["corner"],
+4: ["hole-open"],
+5: ["ramp"]
+},
+"ramp": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["Empty"],
+4: ["open"],
+5: ["ramp-180.0"]
+},
+"ramp-180.0": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["Empty"],
+4: ["ramp"],
+5: ["hill-round"]
+},
+"side": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["hole-open"],
+3: ["Empty"],
+4: ["hill-corner-90.0"],
+5: ["corner"]
+},
+"side-180.0": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["hole-open"],
+4: ["hill-corner-180.0"],
+5: ["corner-270.0"]
+},
+"side-90.0": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["hill-corner-180.0"],
+3: ["hill-corner-90.0"],
+4: ["Empty"],
+5: ["hole-open"]
+},
+"start": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["Empty"],
+4: ["hill-round"],
+5: ["Empty"]
+}
+}
+mesh_library = ExtResource("1_ux53u")

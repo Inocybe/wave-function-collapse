@@ -39,7 +39,7 @@ func generate_constraints() -> void:
 		
 		# get adjacent tiles
 		for direction in ConstraintDirections.values():
-			var adjacent_cell_position: Vector3 = constraint_check_vectors[direction]
+			var adjacent_cell_position: Vector3 = Vector3(pos) + constraint_check_vectors[direction]
 			var adjacent_tile_name: String = get_name_at_pos(adjacent_cell_position)
 			tile_constraints.get_or_add(direction, []).append(adjacent_tile_name)
 
@@ -61,10 +61,11 @@ func get_name_at_pos(pos: Vector3) -> String:
 func save_to_resource():
 	var wfc_constraints_resource: WFCResource
 	
-	if ResourceLoader.exists("res://resources/wfc_constraints.tres", "WFCConstraints"):
-		wfc_constraints_resource = ResourceLoader.load("res://resources/wfc_constraints.tres", "WFCConstraints")
+	if ResourceLoader.exists("res://resources/wfc_constraints.tres", "WFCResource"):
+		wfc_constraints_resource = ResourceLoader.load("res://resources/wfc_constraints.tres", "WFCResource")
 	else:
 		wfc_constraints_resource = WFCResource.new()
 	
 	wfc_constraints_resource.rules = constraints
+	wfc_constraints_resource.mesh_library = mesh_library
 	ResourceSaver.save(wfc_constraints_resource, "res://resources/wfc_constraints.tres")
