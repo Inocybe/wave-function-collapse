@@ -44,28 +44,50 @@ func start_collapse() -> void:
 	tiles[Vector3i(start_rand_pos)].clear()
 	tiles[Vector3i(start_rand_pos)].append(start_tile) # TERRIBLE HARD CODED IN
 	
+	
+	collapse_adjacent_recursive(start_rand_pos)
+	
+
+
+func collapse_adjacent_recursive(original_pos: Vector3i):
+	
 	for direction in CheckDirections.values():
-		var adjacent_tile_pos: Vector3i = propogate_check_directions[direction] + start_rand_pos
-		var available_tiles: Array[String] = collapse_adjacent(start_rand_pos, [start_tile], direction)
+		# check if out of bounds, if it is, ignore
+		var checking_pos: Vector3i = original_pos + propogate_check_directions[direction]
+		
+		if checking_pos.x < 0 or checking_pos.x >= grid_size.x:
+			continue
+		if checking_pos.y < 0 or checking_pos.y >= grid_size.y:
+			continue
+		if checking_pos.z < 0 or checking_pos.z >= grid_size.z:
+			continue
+		if not tiles.has(checking_pos):
+			print("Skipping invalid position:", checking_pos)
+			continue
+		
+	
+		var available_tiles: Array[String] = []
+		
+		# add items to the array where the constraints are true
+		for tile in tiles[original_pos]:
+			available_tiles.append_array(wfc_constraints.rules[tile][direction])
+		
+		# setting dictionary for the given position
+		available_tiles = array_unique(available_tiles)
+		tiles[checking_pos].clear()
+		tiles[checking_pos] = available_tiles
+		print(tiles[checking_pos])
 		
 		# getting smallest tiles
 		if available_tiles.size() < smallest_collapse_size:
 			smallest_collapse_size = available_tiles.size()
 			smallest_collapses.clear()
-			smallest_collapses.append(adjacent_tile_pos)
+			smallest_collapses.append(checking_pos)
 		elif available_tiles.size() == smallest_collapse_size:
-			smallest_collapses.append(adjacent_tile_pos)
-	
-
-
-func collapse_adjacent(original_pos: Vector3i, original_pos_tiles: Array[String], checking_dir: int) -> Array[String]:
-	var available_tiles: Array[String] = []
-	
-	for tile in original_pos_tiles:
-		available_tiles.append_array(wfc_constraints.rules[tile][checking_dir])
-	
-	available_tiles = array_unique(available_tiles)
-	return available_tiles
+			smallest_collapses.append(checking_pos)
+		
+		
+		
 
 
 
@@ -79,5 +101,5 @@ func array_unique(array: Array[String]) -> Array:
 	return unique
 
 func random_vector3i(bounds: Vector3i) -> Vector3i:
-	return Vector3i(randi_range(0, grid_size.x - 1), randi_range(0, grid_size.y- 1), randi_range(0, grid_size.z - 1))
+	return Vector3i(randi_range(0, grid_size.x - 1), randi_range(0, grid_size.y - 1), randi_range(0, grid_size.z - 1))
 	
