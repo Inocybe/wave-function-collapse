@@ -1,9 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://b00jhs717a2xq"]
+[gd_scene load_steps=8 format=3 uid="uid://b00jhs717a2xq"]
 
 [ext_resource type="Script" uid="uid://dnbulenyen7fd" path="res://scripts/wfc.gd" id="2_h2yge"]
 [ext_resource type="Resource" uid="uid://b20ol8du4tlr1" path="res://resources/wfc_constraints.tres" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://cte4jalives85" path="res://addons/sk_fly_camera/src/fly_camera.gd" id="3_h2yge"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h2yge"]
 
 [node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
 
 [node name="Node" type="Node" parent="." node_paths=PackedStringArray("grid_map")]
 script = ExtResource("2_h2yge")
@@ -17,8 +32,25 @@ cell_center_y = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[connection signal="pressed" from="CanvasLayer/Button" to="Node" method="_on_button_pressed"]
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 98.0
+offset_bottom = 36.0
+text = "Generate"
+
+[node name="FlyCamera" type="CharacterBody3D" parent="."]
+script = ExtResource("3_h2yge")
+metadata/_custom_type_script = "uid://cte4jalives85"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlyCamera"]
+shape = SubResource("SphereShape3D_h2yge")
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="Node" method="_on_button_pressed"]

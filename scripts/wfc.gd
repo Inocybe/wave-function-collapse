@@ -26,6 +26,7 @@ var iter: int = 0
 
 func _on_button_pressed() -> void:
 	wfc()
+	create_visual()
 
 
 #region WFC
@@ -123,7 +124,18 @@ func collapse(index: Vector3i) -> void:
 
 
 func create_visual() -> void:
-	pass
+	for x:int in range(grid_size.x):
+		for z:int in range(grid_size.z):
+			for y:int in range(grid_size.y):
+				var item: Array = tiles[Vector3i(x, y, z)]
+				if item == []:
+					continue
+				if item[0] == "Empty":
+					continue
+				
+				grid_map.mesh_library = wfc_constraints.mesh_library
+				var cell = wfc_constraints.cell_on_name(item[0])
+				grid_map.set_cell_item(Vector3i(x,y,z), cell)
 
 
 
