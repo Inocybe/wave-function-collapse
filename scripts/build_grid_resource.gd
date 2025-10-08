@@ -30,6 +30,7 @@ func _run() -> void:
 	
 	generate_constraints()
 	save_to_resource()
+	print(constraints)
 
 
 func generate_constraints() -> void:

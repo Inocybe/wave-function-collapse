@@ -14,3 +14,11 @@ grid_size = Vector3i(10, 2, 10)
 [node name="GridMap" type="GridMap" parent="."]
 cell_size = Vector3(1, 1, 1)
 cell_center_y = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="CanvasLayer/Button" to="Node" method="_on_button_pressed"]
