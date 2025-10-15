@@ -5,14 +5,25 @@ class_name WFCResource extends Resource
 
 
 
-func cell_on_name(string: String) -> int:
-	if string.contains("-90"):
-		string.replace("-90", "")
-	if string.contains("-180"):
-		string.replace("-270", "")
-	if string.contains("-270"):
-		string.replace("-270", "")
-	if mesh_library.find_item_by_name(string + "-symmetrical") != -1:
-		return mesh_library.find_item_by_name(string + "-symmetrical")
+func cell_on_name(name: String) -> int:
+	if name.contains("-90"):
+		name.replace("-90", "")
+	if name.contains("-180"):
+		name.replace("-270", "")
+	if name.contains("-270"):
+		name.replace("-270", "")
+	if mesh_library.find_item_by_name(name + "-symmetrical") != -1:
+		return mesh_library.find_item_by_name(name + "-symmetrical")
 	
-	return mesh_library.find_item_by_name(string)
+	return mesh_library.find_item_by_name(name)
+
+
+func rotation_on_name(name: String) -> float:
+	if name.contains("-90"):
+		return 90
+	if name.contains("-180"):
+		return 180
+	if name.contains("-270"):
+		return 270
+	
+	return 0

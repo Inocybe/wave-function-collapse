@@ -46,11 +46,11 @@ func wfc() -> void:
 
 func initialize() -> void:
 	var array_of_available_tiles = wfc_constraints.rules.keys()
+	array_of_available_tiles.append("Empty")
 	for x in range(grid_size.x):
 		for z in range(grid_size.z):
 			for y in range(grid_size.y):
 				tiles[Vector3i(x, y, z)] =  array_of_available_tiles.duplicate()
-
 
 
 func collapse_wave_function() -> void:
@@ -64,27 +64,49 @@ func collapse_wave_function() -> void:
 			print("Tiles uncolapesed count: ", count_uncollapsed())
 			return
 		
-		
 		update_smallest_collapses()
-		
 		
 		if smallest_collapses.is_empty():
 			print("Fully collapsed after ", iter, " iterations")
 			fully_collapsed = true
 			continue
 		
+		
 		# gets random lowest entropy cell
 		var rand_int = randi_range(0, smallest_collapses.size() - 1)
 		var lowest_entropy_cell: Vector3i = smallest_collapses[rand_int]
 		
+		
+		
 		collapse(lowest_entropy_cell)
 		propogate(lowest_entropy_cell)
-
 	
 	print(tiles)
 
 
 func update_smallest_collapses() -> void:
+	#smallest_collapses.clear()
+	#smallest_collapse_size = 1000
+	#
+	#for direction in CheckDirections.values():
+		#var pos: Vector3i = propogate_check_directions[direction] + index
+		#
+		#if pos.x < 0 or pos.x >= grid_size.x: continue
+		#if pos.y < 0 or pos.y >= grid_size.y: continue
+		#if pos.z < 0 or pos.z >= grid_size.z: continue
+		#
+		#var tile_count = tiles[pos].size()
+		#
+		#
+		#if tile_count < smallest_collapse_size:
+			#smallest_collapse_size = tile_count
+			#smallest_collapses = [pos]
+		#elif tile_count == smallest_collapse_size:
+			#smallest_collapses.append(pos)
+	
+	
+	
+	
 	smallest_collapses.clear()
 	smallest_collapse_size = 10000
 	
@@ -92,6 +114,7 @@ func update_smallest_collapses() -> void:
 		var tile_count = tiles[pos].size()
 		
 		# Skip already collapsed tiles (size == 1)
+		
 		if tile_count <= 1:
 			continue
 			
@@ -121,8 +144,8 @@ func propogate(index: Vector3i) -> void:
 			if checking_pos.y < 0 or checking_pos.y >= grid_size.y: continue
 			if checking_pos.z < 0 or checking_pos.z >= grid_size.z: continue
 			
-			if tiles[checking_pos].size() == 1:
-				continue
+			#if tiles[checking_pos].size() == 1:
+				#continue
 			
 			# pass
 			var possible_tiles = get_possible_tiles_for_neighbor(index, direction)
@@ -135,13 +158,13 @@ func propogate(index: Vector3i) -> void:
 				# Add neighbor to queue if it needs further propagation
 				if !visited.has(checking_pos):
 					queue.append(checking_pos)
-			
-			
+
 
 func collapse(index: Vector3i) -> void:
 	var size = tiles[index].size()
 	var collapsed_tile = tiles[index][randi_range(0, size - 1)]
 	tiles[index] = [collapsed_tile]
+
 
 func intersect_arrays(array1: Array, array2: Array) -> Array:
 	var result: Array = []
@@ -172,7 +195,8 @@ func create_visual() -> void:
 				
 				grid_map.mesh_library = wfc_constraints.mesh_library
 				var cell = wfc_constraints.cell_on_name(item[0])
-				grid_map.set_cell_item(Vector3i(x,y,z), cell)
+				var rotation = wfc_constraints.rotation_on_name(item[0])
+				grid_map.set_cell_item(Vector3i(x,y,z), cell, rotation)
 
 
 
@@ -247,8 +271,6 @@ func get_possible_tiles_for_neighbor(index: Vector3i, direction: int) -> Array:
 	
 	# For each tile possibility at current position
 	for tile in tiles[index]:
-		if tile == "Empty":
-			continue
 		
 		# Get what tiles can be adjacent in this direction
 		if wfc_constraints.rules.has(tile) and wfc_constraints.rules[tile].size() > direction:
