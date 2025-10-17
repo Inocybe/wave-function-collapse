@@ -42,6 +42,12 @@ func generate_constraints() -> void:
 		for direction in ConstraintDirections.values():
 			var adjacent_cell_position: Vector3 = Vector3(pos) + constraint_check_vectors[direction]
 			var adjacent_tile_name: String = get_name_at_pos(adjacent_cell_position)
+			
+			# skips adding the tile if already give possibility
+			var key = tile_constraints.get(direction)
+			if key and key.has(adjacent_tile_name):
+				continue
+			
 			tile_constraints.get_or_add(direction, []).append(adjacent_tile_name)
 
 
