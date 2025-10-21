@@ -26,6 +26,7 @@ var iter: int = 0
 
 
 func _on_button_pressed() -> void:
+	randomize()
 	wfc()
 	create_visual()
 
@@ -42,34 +43,13 @@ func wfc() -> void:
 	last_collapsed_tile = start_rand_pos
 	
 	propogate(start_rand_pos)
-	
-	for direction in CheckDirections.values():
-			var checking_pos = start_rand_pos + propogate_check_directions[direction]
-			
-			if checking_pos.x < 0 or checking_pos.x >= grid_size.x: continue
-			if checking_pos.y < 0 or checking_pos.y >= grid_size.y: continue
-			if checking_pos.z < 0 or checking_pos.z >= grid_size.z: continue
-			
-			#print(checking_pos)
-			#print("MAIN TILE", tiles[checking_pos])
-			
-			
-			for direction1 in CheckDirections.values():
-				var checking_pos1 = checking_pos + propogate_check_directions[direction1]
-				
-				if checking_pos1.x < 0 or checking_pos1.x >= grid_size.x: continue
-				if checking_pos1.y < 0 or checking_pos1.y >= grid_size.y: continue
-				if checking_pos1.z < 0 or checking_pos1.z >= grid_size.z: continue
-				
-				#print(checking_pos1, " : ", tiles[checking_pos1])
-
-	
-	
 	collapse_wave_function()
 
 
 func initialize() -> void:
 	var array_of_available_tiles = wfc_constraints.rules.keys()
+	if array_of_available_tiles.has("Empty"):
+		array_of_available_tiles.erase("Empty")
 	for x in range(grid_size.x):
 		for z in range(grid_size.z):
 			for y in range(grid_size.y):
@@ -92,7 +72,7 @@ func collapse_wave_function() -> void:
 		if smallest_collapses.is_empty():
 			print("Fully collapsed after ", iter, " iterations")
 			fully_collapsed = true
-			continue
+			continue	
 		
 		
 		# gets random lowest entropy cell
@@ -118,7 +98,6 @@ func update_smallest_collapses() -> void:
 		var tile_count = tiles[pos].size()
 		
 		# Skip already collapsed tiles (size == 1)
-		
 		if tile_count <= 1:
 			continue
 			
@@ -144,29 +123,23 @@ func propogate(index: Vector3i) -> void:
 		for direction in CheckDirections.values():
 			var checking_pos = current_pos + propogate_check_directions[direction]
 			
-			if checking_pos.x < 0 or checking_pos.x >= grid_size.x: continue
-			if checking_pos.y < 0 or checking_pos.y >= grid_size.y: continue
-			if checking_pos.z < 0 or checking_pos.z >= grid_size.z: continue
-			
-			if tiles[checking_pos].size() == 1:
+			if is_position_out_of_bounds(checking_pos):
+				continue
+			# already only 1 tile can go there, just skips to prevent error shi
+			if tiles[checking_pos].size() == 1 or tiles[checking_pos].is_empty():
 				continue
 			
-			# pass
-			var possible_tiles = get_possible_tiles_for_neighbor(current_pos, direction)
 			
-			var add_empty: bool = false
-			if possible_tiles.has("Empty"): add_empty = true
+			var possible_tiles = get_possible_tiles_for_neighbor(current_pos, direction)
 			
 			var new_tiles = intersect_arrays(tiles[checking_pos], possible_tiles)
 			
-			if add_empty: new_tiles.append("Empty")
+			tiles[checking_pos] = new_tiles
 			
-			if new_tiles.size() < tiles[checking_pos].size():
-				tiles[checking_pos] = new_tiles
-				
-				# Add neighbor to queue if it needs further propagation
-				if !visited.has(checking_pos):
-					queue.append(checking_pos)
+			
+			# Add neighbor to queue if it needs further propagation
+			if !visited.has(checking_pos):
+				queue.append(checking_pos)
 
 
 func collapse(index: Vector3i) -> void:
@@ -203,6 +176,8 @@ func create_visual() -> void:
 
 
 
+
+
 func get_possible_tiles_for_neighbor(index: Vector3i, direction: int) -> Array:
 	var possible: Array = []
 	
@@ -217,13 +192,15 @@ func get_possible_tiles_for_neighbor(index: Vector3i, direction: int) -> Array:
 	
 	possible = array_unique(possible)
 	
-
 	return possible
 
-
-
-
-
+# function to check grid_size so no out of bounds
+func is_position_out_of_bounds(position: Vector3i) -> bool:
+	if position.x < 0 or position.x >= grid_size.x: return true
+	if position.y < 0 or position.y >= grid_size.y: return true
+	if position.z < 0 or position.z >= grid_size.z: return true
+	
+	return false
 
 func array_unique(array: Array) -> Array:
 	var unique: Array = []
@@ -232,14 +209,12 @@ func array_unique(array: Array) -> Array:
 			unique.append(item)
 	return unique
 
-
 func intersect_arrays(array1: Array, array2: Array) -> Array:
 	var result: Array = []
 	for item in array1:
 		if array2.has(item):
 			result.append(item)
 	return result
-
 
 func random_vector3i(bounds: Vector3i) -> Vector3i:
 	return Vector3i(randi_range(0, grid_size.x - 1), randi_range(0, grid_size.y - 1), randi_range(0, grid_size.z - 1))
