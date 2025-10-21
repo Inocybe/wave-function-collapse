@@ -6,6 +6,14 @@
 [resource]
 script = ExtResource("1_fyo7b")
 rules = {
+"Empty": {
+0: ["start", "hill-round", "ramp-180.0", "ramp", "open", "hill-corner-180.0", "hill-corner-90.0", "corner", "corner-270.0", "side-180.0", "side", "side-90.0", "hole-open", "round-corner-b-180.0", "round-corner-b", "split-t-180.0", "square-corner-a", "square-corner-a-270.0", "square-corner-a-180.0", "square-corner-a-90.0", "walls-to-open", "gap-180.0", "hole-round-180.0", "spline-default"],
+1: ["start", "hill-round", "ramp-180.0", "ramp", "open", "hill-corner-180.0", "hill-corner-90.0", "corner", "corner-270.0", "side-180.0", "side", "side-90.0", "hole-open", "round-corner-b-180.0", "round-corner-b", "split-t-180.0", "square-corner-a", "square-corner-a-270.0", "square-corner-a-180.0", "square-corner-a-90.0", "walls-to-open", "gap-180.0", "hole-round-180.0", "spline-default"],
+2: ["start", "hill-round", "ramp-180.0", "ramp", "hill-corner-90.0", "corner", "side", "round-corner-b", "square-corner-a", "square-corner-a-90.0", "gap-180.0", "hole-round-180.0", "spline-default"],
+3: ["start", "hill-round", "ramp-180.0", "ramp", "hill-corner-180.0", "corner-270.0", "side-180.0", "round-corner-b-180.0", "square-corner-a-270.0", "square-corner-a-180.0", "gap-180.0", "hole-round-180.0", "spline-default"],
+4: ["start", "corner", "corner-270.0", "round-corner-b", "square-corner-a"],
+5: ["hill-corner-180.0", "hill-corner-90.0", "side-90.0", "square-corner-a-180.0", "square-corner-a-90.0", "hole-round-180.0"]
+},
 "corner": {
 0: ["Empty"],
 1: ["Empty"],
@@ -139,7 +147,7 @@ rules = {
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["spline-default", "gap-180.0"],
+4: ["gap-180.0", "spline-default"],
 5: ["walls-to-open", "spline-default"]
 },
 "split-t-180.0": {

@@ -11,6 +11,14 @@ var constraint_check_vectors: Dictionary[ConstraintDirections, Vector3]= {
 	ConstraintDirections.forward: Vector3.FORWARD,
 	ConstraintDirections.back: Vector3.BACK,
 }
+var opposite_check_directions: Dictionary[ConstraintDirections, ConstraintDirections] = {
+	ConstraintDirections.up: ConstraintDirections.down,
+	ConstraintDirections.down: ConstraintDirections.up,
+	ConstraintDirections.left: ConstraintDirections.right,
+	ConstraintDirections.right: ConstraintDirections.left,
+	ConstraintDirections.forward: ConstraintDirections.back,
+	ConstraintDirections.back: ConstraintDirections.forward
+}
 
 
 var mesh_library: MeshLibrary
@@ -34,23 +42,43 @@ func _run() -> void:
 
 
 func generate_constraints() -> void:
+	var all_tiles: Array[String] = []
+	for cell in grid_map.get_used_cells():
+		var cell_name: String = get_name_at_pos(cell)
+		if !all_tiles.has(cell_name):
+			all_tiles.append(all_tiles)
+	
+	for tile_name in all_tiles:
+		if !constraints.has(tile_name):
+			constraints[tile_name] = {}
+	
+	
+	
 	for pos in grid_map.get_used_cells():
 		var tile_name: String = get_name_at_pos(pos)
-		var tile_constraints: Dictionary = constraints.get_or_add(tile_name, {})
 		
 		# get adjacent tiles
 		for direction in ConstraintDirections.values():
-			var adjacent_cell_position: Vector3 = Vector3(pos) + constraint_check_vectors[direction]
-			var adjacent_tile_name: String = get_name_at_pos(adjacent_cell_position)
+			var adjacent_pos: Vector3 = Vector3(pos) + constraint_check_vectors[direction]
+			var adjacent_tile_name: String = get_name_at_pos(adjacent_pos)
 			
-			# skips adding the tile if already give possibility
-			var key = tile_constraints.get(direction)
-			if key and key.has(adjacent_tile_name):
-				continue
+			add_unique_constraint(tile_name, direction, adjacent_tile_name)
 			
-			tile_constraints.get_or_add(direction, []).append(adjacent_tile_name)
+			var opposite_dir = opposite_check_directions[direction]
+			add_unique_constraint(adjacent_tile_name, opposite_dir, tile_name)
+			
 
 
+func add_unique_constraint(tile_name: String, direction: int, neighbor_name: String) -> void:
+	if !constraints.has(tile_name):
+		constraints[tile_name] = {}
+	
+	if !constraints[tile_name].has(direction):
+		constraints[tile_name][direction] = []
+	
+	var existing_neighbors: Array = constraints[tile_name][direction]
+	if !existing_neighbors.has(neighbor_name):
+		existing_neighbors.append(neighbor_name)
 
 func get_name_at_pos(pos: Vector3) -> String:
 	var item_index = grid_map.get_cell_item(pos)
