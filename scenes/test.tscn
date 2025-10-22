@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckkdiid0pvl0t"]
+
+[ext_resource type="MeshLibrary" uid="uid://cug8elup03a0p" path="res://libraries/library.tres" id="1_errlg"]
+
+[node name="Node3D" type="GridMap"]
+mesh_library = ExtResource("1_errlg")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65535, 65535, 91, 65534, 65535, 92, 65533, 65535, 14, 0, 65535, 2)
+}

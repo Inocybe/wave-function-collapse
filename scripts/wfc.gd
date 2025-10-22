@@ -29,6 +29,7 @@ func _on_button_pressed() -> void:
 	randomize()
 	wfc()
 	create_visual()
+	print_rich("[color=red]NEW ONE[/color]")
 
 
 #region WFC
@@ -72,7 +73,7 @@ func collapse_wave_function() -> void:
 		if smallest_collapses.is_empty():
 			print("Fully collapsed after ", iter, " iterations")
 			fully_collapsed = true
-			continue	
+			continue
 		
 		
 		# gets random lowest entropy cell
@@ -119,20 +120,33 @@ func propogate(index: Vector3i) -> void:
 		if visited.has(current_pos):
 			continue
 		visited[current_pos] = true
-	
+		
+		print("Checking tiles around: ", current_pos)
+		
 		for direction in CheckDirections.values():
 			var checking_pos = current_pos + propogate_check_directions[direction]
 			
+			
+			print("Checking: ", direction)
+		
 			if is_position_out_of_bounds(checking_pos):
+				print("This dir is out of bounds: ", checking_pos)
 				continue
+			
+			
 			# already only 1 tile can go there, just skips to prevent error shi
 			if tiles[checking_pos].size() == 1 or tiles[checking_pos].is_empty():
+				print("Pos ", checking_pos, " is collapsed or empty.")
 				continue
+			
+			
 			
 			
 			var possible_tiles = get_possible_tiles_for_neighbor(current_pos, direction)
+			print("Possible tiles: ", possible_tiles.size())
 			
 			var new_tiles = intersect_arrays(tiles[checking_pos], possible_tiles)
+			print("New tiles: ", new_tiles)
 			
 			tiles[checking_pos] = new_tiles
 			
@@ -172,9 +186,7 @@ func create_visual() -> void:
 				grid_map.mesh_library = wfc_constraints.mesh_library
 				var cell = wfc_constraints.cell_on_name(item[0])
 				var rotation = wfc_constraints.rotation_on_name(item[0])
-				grid_map.set_cell_item(Vector3i(x,y,z), cell)
-
-
+				grid_map.set_cell_item(Vector3i(x,y,z), cell, rotation)
 
 
 

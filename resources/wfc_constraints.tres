@@ -7,204 +7,76 @@
 script = ExtResource("1_fyo7b")
 rules = {
 "Empty": {
-0: ["start", "hill-round", "ramp-180.0", "ramp", "open", "hill-corner-180.0", "hill-corner-90.0", "corner", "corner-270.0", "side-180.0", "side", "side-90.0", "hole-open", "round-corner-b-180.0", "round-corner-b", "split-t-180.0", "square-corner-a", "square-corner-a-270.0", "square-corner-a-180.0", "square-corner-a-90.0", "walls-to-open", "gap-180.0", "hole-round-180.0", "spline-default"],
-1: ["start", "hill-round", "ramp-180.0", "ramp", "open", "hill-corner-180.0", "hill-corner-90.0", "corner", "corner-270.0", "side-180.0", "side", "side-90.0", "hole-open", "round-corner-b-180.0", "round-corner-b", "split-t-180.0", "square-corner-a", "square-corner-a-270.0", "square-corner-a-180.0", "square-corner-a-90.0", "walls-to-open", "gap-180.0", "hole-round-180.0", "spline-default"],
-2: ["start", "hill-round", "ramp-180.0", "ramp", "hill-corner-90.0", "corner", "side", "round-corner-b", "square-corner-a", "square-corner-a-90.0", "gap-180.0", "hole-round-180.0", "spline-default"],
-3: ["start", "hill-round", "ramp-180.0", "ramp", "hill-corner-180.0", "corner-270.0", "side-180.0", "round-corner-b-180.0", "square-corner-a-270.0", "square-corner-a-180.0", "gap-180.0", "hole-round-180.0", "spline-default"],
-4: ["start", "corner", "corner-270.0", "round-corner-b", "square-corner-a"],
-5: ["hill-corner-180.0", "hill-corner-90.0", "side-90.0", "square-corner-a-180.0", "square-corner-a-90.0", "hole-round-180.0"]
+0: ["open", "hill-corner", "corner", "side", "hole-open", "start", "split-start", "narrow-square"],
+1: ["open", "hill-corner", "corner", "side", "hole-open", "start", "split-start", "narrow-square"],
+2: ["hill-corner", "corner", "side", "start", "split-start", "narrow-square"],
+3: ["hill-corner", "corner", "side", "start", "split-start", "narrow-square"],
+4: ["corner", "start"],
+5: ["hill-corner", "side"]
 },
 "corner": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["open"],
-3: ["Empty"],
+2: ["open", "Empty"],
+3: ["open", "Empty"],
 4: ["side"],
 5: ["Empty"]
 },
-"corner-270.0": {
+"hill-corner": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["Empty"],
-3: ["open"],
-4: ["side-180.0"],
-5: ["Empty"]
-},
-"gap-180.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["Empty"],
-4: ["hole-round-180.0"],
-5: ["spline-default"]
-},
-"hill-corner-180.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["side-90.0"],
-4: ["Empty"],
-5: ["side-180.0"]
-},
-"hill-corner-90.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["side-90.0"],
-3: ["Empty"],
+2: ["Empty", "side"],
+3: ["side", "Empty"],
 4: ["Empty"],
 5: ["side"]
-},
-"hill-round": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["Empty"],
-4: ["ramp-180.0"],
-5: ["start"]
 },
 "hole-open": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["side-180.0"],
+2: ["side"],
 3: ["side"],
-4: ["side-90.0"],
+4: ["side"],
 5: ["open"]
 },
-"hole-round-180.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["Empty"],
-4: ["Empty"],
-5: ["gap-180.0"]
-},
-"open": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["corner-270.0"],
-3: ["corner"],
-4: ["hole-open"],
-5: ["ramp"]
-},
-"ramp": {
+"narrow-square": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
 4: ["open"],
-5: ["ramp-180.0"]
+5: ["split-start"]
 },
-"ramp-180.0": {
+"open": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["Empty"],
-3: ["Empty"],
-4: ["ramp"],
-5: ["hill-round"]
-},
-"round-corner-b": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["round-corner-b-180.0"],
-3: ["Empty"],
-4: ["split-t-180.0"],
-5: ["Empty"]
-},
-"round-corner-b-180.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["round-corner-b"],
-4: ["square-corner-a-270.0"],
-5: ["start"]
+2: ["corner"],
+3: ["corner"],
+4: ["hole-open"],
+5: ["narrow-square"]
 },
 "side": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["hole-open"],
-3: ["Empty"],
-4: ["hill-corner-90.0"],
-5: ["corner"]
+2: ["hill-corner", "Empty", "hole-open"],
+3: ["hill-corner", "hole-open", "Empty"],
+4: ["hill-corner", "Empty"],
+5: ["corner", "hole-open"]
 },
-"side-180.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["hole-open"],
-4: ["hill-corner-180.0"],
-5: ["corner-270.0"]
-},
-"side-90.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["hill-corner-180.0"],
-3: ["hill-corner-90.0"],
-4: ["Empty"],
-5: ["hole-open"]
-},
-"spline-default": {
+"split-start": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["gap-180.0", "spline-default"],
-5: ["walls-to-open", "spline-default"]
-},
-"split-t-180.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["square-corner-a-270.0"],
-3: ["square-corner-a"],
-4: ["walls-to-open"],
-5: ["round-corner-b"]
-},
-"square-corner-a": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["split-t-180.0"],
-3: ["Empty"],
-4: ["square-corner-a-90.0"],
-5: ["Empty"]
-},
-"square-corner-a-180.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["walls-to-open"],
-4: ["Empty"],
-5: ["square-corner-a-270.0"]
-},
-"square-corner-a-270.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["split-t-180.0"],
-4: ["square-corner-a-180.0"],
-5: ["round-corner-b-180.0"]
-},
-"square-corner-a-90.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["walls-to-open"],
-3: ["Empty"],
-4: ["Empty"],
-5: ["square-corner-a"]
+4: ["narrow-square"],
+5: ["start"]
 },
 "start": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["hill-round", "round-corner-b-180.0"],
+4: ["split-start"],
 5: ["Empty"]
-},
-"walls-to-open": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["square-corner-a-180.0"],
-3: ["square-corner-a-90.0"],
-4: ["spline-default"],
-5: ["split-t-180.0"]
 }
 }
 mesh_library = ExtResource("1_ux53u")
