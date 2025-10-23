@@ -7,60 +7,92 @@
 script = ExtResource("1_fyo7b")
 rules = {
 "Empty": {
-0: ["open-symmetrical", "hill-corner", "corner", "side", "hole-open-symmetrical", "start", "split-start", "narrow-square", "Empty"],
-1: ["open-symmetrical", "hill-corner", "corner", "side", "hole-open-symmetrical", "start", "split-start", "narrow-square", "Empty"],
-2: ["open-symmetrical", "hill-corner", "corner", "side", "hole-open-symmetrical", "start", "split-start", "narrow-square", "Empty"],
-3: ["open-symmetrical", "hill-corner", "corner", "side", "hole-open-symmetrical", "start", "split-start", "narrow-square", "Empty"],
-4: ["open-symmetrical", "hill-corner", "corner", "side", "hole-open-symmetrical", "start", "split-start", "narrow-square", "Empty"],
-5: ["open-symmetrical", "hill-corner", "corner", "side", "hole-open-symmetrical", "start", "split-start", "narrow-square", "Empty"]
+0: ["open", "hill-corner-180.0", "hill-corner-90.0", "corner", "corner-270.0", "side-180.0", "side", "side-90.0", "hole-open", "start", "split-start", "narrow-square"],
+1: ["open", "hill-corner-180.0", "hill-corner-90.0", "corner", "corner-270.0", "side-180.0", "side", "side-90.0", "hole-open", "start", "split-start", "narrow-square"],
+2: ["hill-corner-90.0", "corner", "side", "start", "split-start", "narrow-square"],
+3: ["hill-corner-180.0", "corner-270.0", "side-180.0", "start", "split-start", "narrow-square"],
+4: ["corner", "corner-270.0", "start"],
+5: ["hill-corner-180.0", "hill-corner-90.0", "side-90.0"]
 },
 "corner": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["open-symmetrical", "Empty"],
-3: ["open-symmetrical", "Empty"],
+2: ["open"],
+3: ["Empty"],
 4: ["side"],
 5: ["Empty"]
 },
-"hill-corner": {
+"corner-270.0": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["Empty", "side"],
-3: ["side", "Empty"],
+2: ["Empty"],
+3: ["open"],
+4: ["side-180.0"],
+5: ["Empty"]
+},
+"hill-corner-180.0": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["side-90.0"],
+4: ["Empty"],
+5: ["side-180.0"]
+},
+"hill-corner-90.0": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["side-90.0"],
+3: ["Empty"],
 4: ["Empty"],
 5: ["side"]
 },
-"hole-open-symmetrical": {
+"hole-open": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["side"],
+2: ["side-180.0"],
 3: ["side"],
-4: ["side"],
-5: ["open-symmetrical"]
+4: ["side-90.0"],
+5: ["open"]
 },
 "narrow-square": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["open-symmetrical"],
+4: ["open"],
 5: ["split-start"]
 },
-"open-symmetrical": {
+"open": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["corner"],
+2: ["corner-270.0"],
 3: ["corner"],
-4: ["hole-open-symmetrical"],
+4: ["hole-open"],
 5: ["narrow-square"]
 },
 "side": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["hill-corner", "Empty", "hole-open-symmetrical"],
-3: ["hill-corner", "hole-open-symmetrical", "Empty"],
-4: ["hill-corner", "Empty"],
-5: ["corner", "hole-open-symmetrical"]
+2: ["hole-open"],
+3: ["Empty"],
+4: ["hill-corner-90.0"],
+5: ["corner"]
+},
+"side-180.0": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["hole-open"],
+4: ["hill-corner-180.0"],
+5: ["corner-270.0"]
+},
+"side-90.0": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["hill-corner-180.0"],
+3: ["hill-corner-90.0"],
+4: ["Empty"],
+5: ["hole-open"]
 },
 "split-start": {
 0: ["Empty"],

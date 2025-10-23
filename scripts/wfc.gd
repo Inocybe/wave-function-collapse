@@ -109,7 +109,6 @@ func update_smallest_collapses() -> void:
 			smallest_collapses.append(pos)
 
 
-
 func propogate(index: Vector3i) -> void:
 	var queue: Array[Vector3i] = [index]
 	var visited: Dictionary = {}
@@ -117,51 +116,41 @@ func propogate(index: Vector3i) -> void:
 	while !queue.is_empty():
 		var current_pos = queue.pop_front()
 		
-		if visited.has(current_pos):
+		var current_tiles = tiles[current_pos]
+		if current_tiles.is_empty():
+			printerr("Contradction at: ", current_pos)
 			continue
-		visited[current_pos] = true
 		
 		print("Checking tiles around: ", current_pos)
 		
 		for direction in CheckDirections.values():
 			var checking_pos = current_pos + propogate_check_directions[direction]
 			
-			
-			print("Checking: ", direction)
-		
 			if is_position_out_of_bounds(checking_pos):
-				print("This dir is out of bounds: ", checking_pos)
 				continue
 			
-			
-			# already only 1 tile can go there, just skips to prevent error shi
-			if tiles[checking_pos].size() == 1 or tiles[checking_pos].is_empty():
-				print("Pos ", checking_pos, " is collapsed or empty.")
+			var neighbor_tiles = tiles[checking_pos]
+			if neighbor_tiles.is_empty():
 				continue
-			
-			
-			
 			
 			var possible_tiles = get_possible_tiles_for_neighbor(current_pos, direction)
-			print("Possible tiles: ", possible_tiles.size())
 			
-			var new_tiles = intersect_arrays(tiles[checking_pos], possible_tiles)
-			print("New tiles: ", new_tiles)
+			var new_tiles = intersect_arrays(possible_tiles, neighbor_tiles)
 			
-			tiles[checking_pos] = new_tiles
-			
-			
-			# Add neighbor to queue if it needs further propagation
-			if !visited.has(checking_pos):
-				queue.append(checking_pos)
+			if new_tiles.size() < neighbor_tiles.size():
+				tiles[checking_pos] = new_tiles
+				
+				if !queue.has(checking_pos):
+					queue.append(checking_pos)
+				
+				if new_tiles.is_empty():
+					printerr("Created contradiction at ", checking_pos)
 
 
 func collapse(index: Vector3i) -> void:
 	var size = tiles[index].size()
 	var collapsed_tile = tiles[index][randi_range(0, size - 1)]
 	tiles[index] = [collapsed_tile]
-
-
 
 
 #endregion
