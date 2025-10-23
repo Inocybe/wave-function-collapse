@@ -37,6 +37,7 @@ func _run() -> void:
 		mesh_library = grid_map.mesh_library
 	
 	generate_constraints()
+	add_empty()
 	save_to_resource()
 	print(constraints)
 
@@ -89,9 +90,15 @@ func get_name_at_pos(pos: Vector3) -> String:
 	var item_name: String = mesh_library.get_item_name(item_index)
 	var item_rotation: float = round(rad_to_deg(fposmod((grid_map.get_cell_item_basis(pos).get_euler().y), TAU))) # this terrible line of code just converts stuff to rotation, so that we can put it into cell data
 	var tile_name: String = item_name + ("" if item_rotation == 0 or item_name.contains("symmetrical") else "-%s" % item_rotation)
-	tile_name = tile_name.replace("-symmetrical", "")
 	
 	return tile_name
+
+
+func add_empty() -> void:
+	var tiles = constraints.keys()
+	constraints["Empty"] = {}
+	for direction in ConstraintDirections.values():
+		constraints["Empty"][direction] = tiles.duplicate()
 
 
 func save_to_resource():

@@ -7,18 +7,18 @@
 script = ExtResource("1_fyo7b")
 rules = {
 "Empty": {
-0: ["open", "hill-corner", "corner", "side", "hole-open", "start", "split-start", "narrow-square"],
-1: ["open", "hill-corner", "corner", "side", "hole-open", "start", "split-start", "narrow-square"],
-2: ["hill-corner", "corner", "side", "start", "split-start", "narrow-square"],
-3: ["hill-corner", "corner", "side", "start", "split-start", "narrow-square"],
-4: ["corner", "start"],
-5: ["hill-corner", "side"]
+0: ["open-symmetrical", "hill-corner", "corner", "side", "hole-open-symmetrical", "start", "split-start", "narrow-square", "Empty"],
+1: ["open-symmetrical", "hill-corner", "corner", "side", "hole-open-symmetrical", "start", "split-start", "narrow-square", "Empty"],
+2: ["open-symmetrical", "hill-corner", "corner", "side", "hole-open-symmetrical", "start", "split-start", "narrow-square", "Empty"],
+3: ["open-symmetrical", "hill-corner", "corner", "side", "hole-open-symmetrical", "start", "split-start", "narrow-square", "Empty"],
+4: ["open-symmetrical", "hill-corner", "corner", "side", "hole-open-symmetrical", "start", "split-start", "narrow-square", "Empty"],
+5: ["open-symmetrical", "hill-corner", "corner", "side", "hole-open-symmetrical", "start", "split-start", "narrow-square", "Empty"]
 },
 "corner": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["open", "Empty"],
-3: ["open", "Empty"],
+2: ["open-symmetrical", "Empty"],
+3: ["open-symmetrical", "Empty"],
 4: ["side"],
 5: ["Empty"]
 },
@@ -30,37 +30,37 @@ rules = {
 4: ["Empty"],
 5: ["side"]
 },
-"hole-open": {
+"hole-open-symmetrical": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["side"],
 3: ["side"],
 4: ["side"],
-5: ["open"]
+5: ["open-symmetrical"]
 },
 "narrow-square": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["open"],
+4: ["open-symmetrical"],
 5: ["split-start"]
 },
-"open": {
+"open-symmetrical": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["corner"],
 3: ["corner"],
-4: ["hole-open"],
+4: ["hole-open-symmetrical"],
 5: ["narrow-square"]
 },
 "side": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["hill-corner", "Empty", "hole-open"],
-3: ["hill-corner", "hole-open", "Empty"],
+2: ["hill-corner", "Empty", "hole-open-symmetrical"],
+3: ["hill-corner", "hole-open-symmetrical", "Empty"],
 4: ["hill-corner", "Empty"],
-5: ["corner", "hole-open"]
+5: ["corner", "hole-open-symmetrical"]
 },
 "split-start": {
 0: ["Empty"],
