@@ -38,10 +38,7 @@ func wfc() -> void:
 	iter = 0
 	initialize()
 	
-	var start_tile: String = "start"
-	var start_rand_pos: Vector3i = random_vector3i(grid_size)
-	tiles[start_rand_pos] = [start_tile]
-	last_collapsed_tile = start_rand_pos
+	var start_rand_pos = pick_rand_start_tile()
 	
 	propogate(start_rand_pos)
 	collapse_wave_function()
@@ -226,3 +223,12 @@ func count_uncollapsed() -> int:
 		if tiles[pos].size() > 1:
 			count += 1
 	return count
+
+
+func pick_rand_start_tile() -> Vector3i:
+	var start_rand_pos: Vector3i = random_vector3i(grid_size)
+	var start_tile = tiles[start_rand_pos][randi_range(0, tiles[start_rand_pos].size())]
+	tiles[start_rand_pos] = [start_tile]
+	last_collapsed_tile = start_rand_pos
+	
+	return start_rand_pos

@@ -1,113 +1,89 @@
 [gd_resource type="Resource" script_class="WFCResource" load_steps=3 format=3 uid="uid://b20ol8du4tlr1"]
 
 [ext_resource type="Script" uid="uid://pt7s4xo68uvl" path="res://scripts/wfc_resource.gd" id="1_fyo7b"]
-[ext_resource type="MeshLibrary" uid="uid://cug8elup03a0p" path="res://libraries/library.tres" id="1_ux53u"]
+[ext_resource type="MeshLibrary" uid="uid://dqlqfd8xuggff" path="res://libraries/castle_library.tres" id="1_ux53u"]
 
 [resource]
 script = ExtResource("1_fyo7b")
 rules = {
+"Corner": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["Wall-90.0"],
+4: ["Empty"],
+5: ["Wall"]
+},
+"Corner-180.0": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Wall-90.0"],
+3: ["Empty"],
+4: ["Wall-180.0"],
+5: ["Empty"]
+},
+"Corner-270.0": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Wall-90.0"],
+3: ["Empty"],
+4: ["Empty"],
+5: ["Wall-180.0"]
+},
+"Corner-90.0": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["Wall-90.0"],
+4: ["Wall"],
+5: ["Empty"]
+},
 "Empty": {
-0: ["open", "hill-corner-180.0", "hill-corner-90.0", "corner", "corner-270.0", "side-180.0", "side", "side-90.0", "hole-open", "start", "split-start", "narrow-square"],
-1: ["open", "hill-corner-180.0", "hill-corner-90.0", "corner", "corner-270.0", "side-180.0", "side", "side-90.0", "hole-open", "start", "split-start", "narrow-square"],
-2: ["hill-corner-90.0", "corner", "side", "start", "split-start", "narrow-square"],
-3: ["hill-corner-180.0", "corner-270.0", "side-180.0", "start", "split-start", "narrow-square"],
-4: ["corner", "corner-270.0", "start"],
-5: ["hill-corner-180.0", "hill-corner-90.0", "side-90.0"]
+0: ["Wall", "Corner", "Corner-90.0", "Wall-90.0", "Corner-270.0", "Wall-180.0", "Corner-180.0"],
+1: ["Corner", "Corner-90.0", "Corner-270.0", "Corner-180.0", "TopWall-270.0", "TopWall-180.0"],
+2: ["Wall", "Corner-270.0", "Wall-180.0", "Corner-180.0", "TopWall-270.0", "TopWall-180.0"],
+3: ["Wall", "Corner", "Corner-90.0", "Wall-180.0", "TopWall-270.0", "TopWall-180.0"],
+4: ["Corner-90.0", "Wall-90.0", "Corner-180.0", "TopWall-270.0", "TopWall-180.0"],
+5: ["Corner", "Wall-90.0", "Corner-270.0", "TopWall-270.0", "TopWall-180.0"]
 },
-"corner": {
+"TopWall-180.0": {
 0: ["Empty"],
-1: ["Empty"],
-2: ["open"],
+1: ["Wall", "Wall-180.0"],
+2: ["Empty"],
 3: ["Empty"],
-4: ["side"],
+4: ["Empty"],
 5: ["Empty"]
 },
-"corner-270.0": {
+"TopWall-270.0": {
 0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["open"],
-4: ["side-180.0"],
+1: ["Wall-90.0"],
+2: ["Empty", "TopWall-270.0"],
+3: ["TopWall-270.0", "Empty"],
+4: ["Empty"],
 5: ["Empty"]
 },
-"hill-corner-180.0": {
-0: ["Empty"],
+"Wall": {
+0: ["TopWall-180.0"],
 1: ["Empty"],
 2: ["Empty"],
-3: ["side-90.0"],
+3: ["Empty"],
+4: ["Corner"],
+5: ["Corner-90.0"]
+},
+"Wall-180.0": {
+0: ["TopWall-180.0"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["Empty"],
+4: ["Corner-270.0"],
+5: ["Corner-180.0"]
+},
+"Wall-90.0": {
+0: ["TopWall-270.0"],
+1: ["Empty"],
+2: ["Corner", "Corner-90.0", "Wall-90.0"],
+3: ["Wall-90.0", "Corner-270.0", "Corner-180.0"],
 4: ["Empty"],
-5: ["side-180.0"]
-},
-"hill-corner-90.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["side-90.0"],
-3: ["Empty"],
-4: ["Empty"],
-5: ["side"]
-},
-"hole-open": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["side-180.0"],
-3: ["side"],
-4: ["side-90.0"],
-5: ["open"]
-},
-"narrow-square": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["Empty"],
-4: ["open"],
-5: ["split-start"]
-},
-"open": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["corner-270.0"],
-3: ["corner"],
-4: ["hole-open"],
-5: ["narrow-square"]
-},
-"side": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["hole-open"],
-3: ["Empty"],
-4: ["hill-corner-90.0"],
-5: ["corner"]
-},
-"side-180.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["hole-open"],
-4: ["hill-corner-180.0"],
-5: ["corner-270.0"]
-},
-"side-90.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["hill-corner-180.0"],
-3: ["hill-corner-90.0"],
-4: ["Empty"],
-5: ["hole-open"]
-},
-"split-start": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["Empty"],
-4: ["narrow-square"],
-5: ["start"]
-},
-"start": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["Empty"],
-4: ["split-start"],
 5: ["Empty"]
 }
 }
