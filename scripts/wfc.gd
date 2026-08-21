@@ -27,15 +27,26 @@ var iter: int = 0
 
 func _on_button_pressed() -> void:
 	randomize()
+	print_rich("[color=red]NEW ONE[/color]")
 	wfc()
 	create_visual()
-	print_rich("[color=red]NEW ONE[/color]")
 
 
 #region WFC
 func wfc() -> void:
+	var success := false
+	var attempts := 0
+	var max_attempts := 50
+	while not success and attempts < max_attempts:
+		success = attempt_wfc()
+		attempts+=1
+	if not success:
+		printerr("Failed after ", max_attempts, " attempts — ruleset may be unsatisfiable.")
+
+	
 	tiles.clear()
 	iter = 0
+	max_iter = grid_size.x * grid_size.y * grid_size.z
 	initialize()
 	
 	var start_rand_pos = pick_rand_start_tile()
@@ -44,17 +55,25 @@ func wfc() -> void:
 	collapse_wave_function()
 
 
+func attempt_wfc() -> bool:
+	tiles.clear()
+	iter = 0
+	max_iter = grid_size.x * grid_size.y * grid_size.z
+	initialize()
+	
+	var start_rand_pos = pick_rand_start_tile()
+	propogate(start_rand_pos)
+	return collapse_wave_function()
+
 func initialize() -> void:
 	var array_of_available_tiles = wfc_constraints.rules.keys()
-	if array_of_available_tiles.has("Empty"):
-		array_of_available_tiles.erase("Empty")
 	for x in range(grid_size.x):
 		for z in range(grid_size.z):
 			for y in range(grid_size.y):
 				tiles[Vector3i(x, y, z)] =  array_of_available_tiles.duplicate()
 
 
-func collapse_wave_function() -> void:
+func collapse_wave_function() -> bool:
 	var fully_collapsed: bool = false
 	
 	while !fully_collapsed:
@@ -62,8 +81,7 @@ func collapse_wave_function() -> void:
 		
 		if iter > max_iter:
 			printerr("Didn't collapse after ", max_iter, " iterations.")
-			print("Tiles uncolapesed count: ", count_uncollapsed())
-			return
+			return false
 		
 		update_smallest_collapses()
 		
@@ -82,19 +100,28 @@ func collapse_wave_function() -> void:
 		propogate(lowest_entropy_cell)
 		last_collapsed_tile = lowest_entropy_cell
 		
-		
+	return true
 	
-	print(tiles)
+
+func has_contradiction() -> bool:
+	for pos in tiles.keys():
+		if tiles[pos].is_empty():
+			return true
+	return false
+
 
 
 func update_smallest_collapses() -> void:
-	
 	smallest_collapses.clear()
 	smallest_collapse_size = 10000
 	
 	for pos in tiles.keys():
 		var tile_count = tiles[pos].size()
 		
+		if tile_count == 0:
+			#printerr("Contradiction at ", pos, " - restarting")
+			#wfc()
+			return
 		# Skip already collapsed tiles (size == 1)
 		if tile_count <= 1:
 			continue
@@ -115,10 +142,9 @@ func propogate(index: Vector3i) -> void:
 		
 		var current_tiles = tiles[current_pos]
 		if current_tiles.is_empty():
-			printerr("Contradction at: ", current_pos)
+			#printerr("Contradction at: ", current_pos)
 			continue
 		
-		print("Checking tiles around: ", current_pos)
 		
 		for direction in CheckDirections.values():
 			var checking_pos = current_pos + propogate_check_directions[direction]
@@ -171,7 +197,7 @@ func create_visual() -> void:
 				
 				grid_map.mesh_library = wfc_constraints.mesh_library
 				var cell = wfc_constraints.cell_on_name(item[0])
-				var rotation = wfc_constraints.rotation_on_name(item[0])
+				var rotation = wfc_constraints.orientations.get(item[0], 0)
 				grid_map.set_cell_item(Vector3i(x,y,z), cell, rotation)
 
 
@@ -227,8 +253,12 @@ func count_uncollapsed() -> int:
 
 func pick_rand_start_tile() -> Vector3i:
 	var start_rand_pos: Vector3i = random_vector3i(grid_size)
-	var start_tile = tiles[start_rand_pos][randi_range(0, tiles[start_rand_pos].size())]
+	var choices = tiles[start_rand_pos].duplicate()
+	if choices.has("Empty") and choices.size() > 1:
+		choices.erase("Empty")
+	var start_tile = choices[randi_range(0, choices.size() - 1)]
 	tiles[start_rand_pos] = [start_tile]
 	last_collapsed_tile = start_rand_pos
 	
+	tiles[start_rand_pos] = ["start"]
 	return start_rand_pos

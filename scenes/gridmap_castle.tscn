@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://nfne1mf7depl"]
+[gd_scene format=3 uid="uid://nfne1mf7depl"]
 
 [ext_resource type="MeshLibrary" uid="uid://dqlqfd8xuggff" path="res://libraries/castle_library.tres" id="1_jl75t"]
 
-[node name="GridmapCastle" type="GridMap"]
+[node name="GridmapCastle" type="GridMap" unique_id=478908796]
 mesh_library = ExtResource("1_jl75t")
 cell_center_y = false
 data = {

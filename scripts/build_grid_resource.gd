@@ -26,6 +26,7 @@ var grid_map: GridMap
 
 var constraints: Dictionary = {}
 
+var orientations_out: Dictionary = {}
 
 func _run() -> void:
 	var root = get_scene()
@@ -43,15 +44,26 @@ func _run() -> void:
 
 func generate_constraints() -> void:
 	var all_tiles: Array = []
+	var tile_orientations: Dictionary = {}
+	
 	for cell in grid_map.get_used_cells():
 		var cell_name: String = get_name_at_pos(cell)
 		if !all_tiles.has(cell_name):
 			all_tiles.append(cell_name)
+		if !tile_orientations.has(cell_name):
+			tile_orientations[cell_name] = grid_map.get_cell_item_orientation(cell)
 	
 	for tile_name in all_tiles:
 		if !constraints.has(tile_name):
 			constraints[tile_name] = {}
 	
+	if !constraints.has("Empty"):
+		constraints["Empty"] = {}
+	for direction in ConstraintDirections.values():
+		add_unique_constraint("Empty", direction, "Empty")
+	
+	
+	orientations_out = tile_orientations
 	
 	
 	for pos in grid_map.get_used_cells():
@@ -103,5 +115,6 @@ func save_to_resource():
 		wfc_constraints_resource = WFCResource.new()
 	
 	wfc_constraints_resource.rules = constraints
+	wfc_constraints_resource.orientations = orientations_out
 	wfc_constraints_resource.mesh_library = mesh_library
 	ResourceSaver.save(wfc_constraints_resource, "res://resources/wfc_constraints.tres")
