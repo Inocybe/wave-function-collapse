@@ -24,6 +24,7 @@ var smallest_collapse_size: int = 1000
 var smallest_collapses: Array[Vector3i] = [] # stores positions of all tiles availble to collapse with the smallest entropy
 var max_iter: int = 200
 var iter: int = 0
+var contradiction_found: bool = false
 
 
 func _on_button_pressed() -> void:
@@ -44,30 +45,20 @@ func wfc() -> void:
 	if not success:
 		printerr("Failed after ", max_attempts, " attempts — ruleset may be unsatisfiable.")
 
-	
-	tiles.clear()
-	frontier_tiles.clear()
-	smallest_collapses.clear()
-	iter = 0
-	max_iter = grid_size.x * grid_size.y * grid_size.z
-	initialize()
-	
-	var start_rand_pos = pick_rand_start_tile()
-	
-	propogate(start_rand_pos)
-	collapse_wave_function()
-
 
 func attempt_wfc() -> bool:
 	smallest_collapses.clear()
 	frontier_tiles.clear()
 	tiles.clear()
+	contradiction_found = false
 	iter = 0
 	max_iter = grid_size.x * grid_size.y * grid_size.z
 	initialize()
 	
 	var start_rand_pos = pick_rand_start_tile()
 	propogate(start_rand_pos)
+	if contradiction_found:
+		return false
 	return collapse_wave_function()
 
 func initialize() -> void:
@@ -88,25 +79,27 @@ func collapse_wave_function() -> bool:
 			printerr("Didn't collapse after ", max_iter, " iterations.")
 			return false
 		
-		update_smallest_collapses()
+		if not update_smallest_collapses():
+			return false
 		
 		if frontier_tiles.is_empty() or smallest_collapses.is_empty():
 			print("Fully collapsed after ", iter, " iterations")
 			fully_collapsed = true
 			continue
 		
-		
-		# gets random lowest entropy cell
 		var rand_int = randi_range(0, smallest_collapses.size() - 1)
 		var lowest_entropy_cell: Vector3i = smallest_collapses[rand_int]
 		
-		
 		collapse(lowest_entropy_cell)
 		propogate(lowest_entropy_cell)
+		
+		if contradiction_found:   # catch cascades from THIS propagation
+			return false
+		
 		last_collapsed_tile = lowest_entropy_cell
 		
 	return true
-	
+
 
 func has_contradiction() -> bool:
 	for pos in tiles.keys():
@@ -116,44 +109,35 @@ func has_contradiction() -> bool:
 
 
 
-func update_smallest_collapses() -> void:
+func update_smallest_collapses() -> bool:
 	smallest_collapses.clear()
 	smallest_collapse_size = 10000
-	
 	for pos in frontier_tiles:
 		var tile_count = tiles[pos].size()
-		
 		if tile_count == 0:
-			#printerr("Contradiction at ", pos, " - restarting")
-			#wfc()
-			return
-		# Skip already collapsed tiles (size == 1)
+			return false
 		if tile_count <= 1:
 			continue
-			
 		if tile_count < smallest_collapse_size:
 			smallest_collapse_size = tile_count
 			smallest_collapses = [pos]
 		elif tile_count == smallest_collapse_size:
 			smallest_collapses.append(pos)
+	return true
+
 
 
 func propogate(index: Vector3i) -> void:
 	var queue: Array[Vector3i] = [index]
-	var visited: Dictionary = {}
 	
 	while !queue.is_empty():
 		var current_pos = queue.pop_front()
-		
 		var current_tiles = tiles[current_pos]
 		if current_tiles.is_empty():
-			#printerr("Contradction at: ", current_pos)
 			continue
-		
 		
 		for direction in CheckDirections.values():
 			var checking_pos = current_pos + propogate_check_directions[direction]
-			
 			if is_position_out_of_bounds(checking_pos):
 				continue
 			
@@ -162,22 +146,24 @@ func propogate(index: Vector3i) -> void:
 				continue
 			
 			var possible_tiles = get_possible_tiles_for_neighbor(current_pos, direction)
-			
 			var new_tiles = intersect_arrays(possible_tiles, neighbor_tiles)
 			
 			if new_tiles.size() < neighbor_tiles.size():
 				tiles[checking_pos] = new_tiles
-				
 				if !queue.has(checking_pos):
 					queue.append(checking_pos)
-				
 				if new_tiles.is_empty():
-					printerr("Created contradiction at ", checking_pos)
+					contradiction_found = true   # <-- flag it globally, wherever it happens
+
 
 
 func collapse(index: Vector3i) -> void:
-	var size = tiles[index].size()
-	var collapsed_tile = tiles[index][randi_range(0, size - 1)]
+	var size:int  = tiles[index].size()
+	var available_tiles: Array = tiles[index]
+	if size > 1 and available_tiles.has("Empty"):
+		available_tiles.erase("Empty")
+		size-=1
+	var collapsed_tile = available_tiles[randi_range(0, size - 1)]
 	tiles[index] = [collapsed_tile]
 	
 	if collapsed_tile == "Empty": return

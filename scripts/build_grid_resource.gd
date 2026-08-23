@@ -99,11 +99,14 @@ func get_name_at_pos(pos: Vector3) -> String:
 		return "Empty"
 	
 	var item_name: String = mesh_library.get_item_name(item_index)
-	var item_rotation: float = round(rad_to_deg(fposmod((grid_map.get_cell_item_basis(pos).get_euler().y), TAU))) # this terrible line of code just converts stuff to rotation, so that we can put it into cell data
-	var tile_name: String = item_name + ("" if item_rotation == 0 or item_name.contains("symmetrical") else "-%s" % item_rotation)
-	tile_name = tile_name.replace("-symmetrical", "")
+	if item_name.contains("symmetrical"):
+		return item_name.replace("-symmetrical", "")
 	
-	return tile_name
+	var orientation: int = grid_map.get_cell_item_orientation(pos)
+	if orientation == 0:
+		return item_name
+	
+	return item_name + "-%d" % orientation
 
 
 func save_to_resource():

@@ -7,12 +7,12 @@
 script = ExtResource("1_fyo7b")
 rules = {
 "Empty": {
-0: ["Empty", "open", "hill-corner-180.0", "hill-corner-90.0", "corner", "corner-270.0", "side-180.0", "side", "side-90.0", "hole-open", "start", "split-start", "narrow-square", "hill-square", "round-corner-a-180.0", "round-corner-a", "ramp-square-180.0", "split-start-180.0", "split-180.0", "skew-corner-180.0", "hole-square-90.0", "straight", "square-corner-a-180.0", "straight-270.0", "square-corner-a-90.0", "hole-square", "tunnel-wide", "obstacle-diamond", "round-corner-c-270.0", "round-corner-c", "round-corner-c-90.0", "round-corner-c-180.0", "walls-to-open", "spline-default", "hole-round-180.0", "straight-180.0", "gap-180.0", "hill-corner", "hill-corner-270.0", "obstacle-block", "hole-square-180.0"],
-1: ["Empty", "open", "hill-corner-180.0", "hill-corner-90.0", "corner", "corner-270.0", "side-180.0", "side", "side-90.0", "hole-open", "start", "split-start", "narrow-square", "hill-square", "round-corner-a-180.0", "round-corner-a", "ramp-square-180.0", "split-start-180.0", "split-180.0", "skew-corner-180.0", "hole-square-90.0", "straight", "square-corner-a-180.0", "straight-270.0", "square-corner-a-90.0", "hole-square", "tunnel-wide", "obstacle-diamond", "round-corner-c-270.0", "round-corner-c", "round-corner-c-90.0", "round-corner-c-180.0", "walls-to-open", "spline-default", "hole-round-180.0", "straight-180.0", "gap-180.0", "hill-corner", "hill-corner-270.0", "obstacle-block", "hole-square-180.0"],
-2: ["Empty", "hill-corner-90.0", "corner", "side", "start", "split-start", "narrow-square", "hill-square", "round-corner-a", "ramp-square-180.0", "split-start-180.0", "split-180.0", "hole-square-90.0", "straight", "square-corner-a-90.0", "hole-square", "tunnel-wide", "round-corner-c", "round-corner-c-90.0", "spline-default", "hole-round-180.0", "straight-180.0", "gap-180.0", "hill-corner", "obstacle-block", "hole-square-180.0"],
-3: ["Empty", "hill-corner-180.0", "corner-270.0", "side-180.0", "start", "split-start", "narrow-square", "hill-square", "round-corner-a-180.0", "ramp-square-180.0", "split-start-180.0", "split-180.0", "skew-corner-180.0", "straight", "square-corner-a-180.0", "hole-square", "tunnel-wide", "round-corner-c-270.0", "round-corner-c-180.0", "spline-default", "hole-round-180.0", "straight-180.0", "gap-180.0", "hill-corner-270.0", "obstacle-block", "hole-square-180.0"],
-4: ["Empty", "corner", "corner-270.0", "start", "round-corner-a", "hole-square-90.0", "straight-270.0", "hole-square", "round-corner-c-270.0", "round-corner-c", "hill-corner"],
-5: ["Empty", "hill-corner-180.0", "hill-corner-90.0", "side-90.0", "round-corner-a-180.0", "skew-corner-180.0", "hole-square-90.0", "square-corner-a-180.0", "straight-270.0", "square-corner-a-90.0", "round-corner-c-90.0", "round-corner-c-180.0", "hole-round-180.0", "hole-square-180.0"]
+0: ["Empty", "open", "hill-corner-10", "hill-corner-16", "corner", "corner-22", "side-10", "side", "side-16", "hole-open", "start", "split-start", "narrow-square", "hill-square", "round-corner-a-10", "round-corner-a", "ramp-square-10", "split-start-10", "split-10", "skew-corner-10", "hole-square-16", "straight", "square-corner-a-10", "straight-22", "square-corner-a-16", "hole-square", "tunnel-wide", "obstacle-diamond", "round-corner-c-22", "round-corner-c", "round-corner-c-16", "round-corner-c-10", "walls-to-open", "spline-default", "hole-round-10", "straight-10", "gap-10", "hill-corner", "hill-corner-22", "obstacle-block", "hole-square-10"],
+1: ["Empty", "open", "hill-corner-10", "hill-corner-16", "corner", "corner-22", "side-10", "side", "side-16", "hole-open", "start", "split-start", "narrow-square", "hill-square", "round-corner-a-10", "round-corner-a", "ramp-square-10", "split-start-10", "split-10", "skew-corner-10", "hole-square-16", "straight", "square-corner-a-10", "straight-22", "square-corner-a-16", "hole-square", "tunnel-wide", "obstacle-diamond", "round-corner-c-22", "round-corner-c", "round-corner-c-16", "round-corner-c-10", "walls-to-open", "spline-default", "hole-round-10", "straight-10", "gap-10", "hill-corner", "hill-corner-22", "obstacle-block", "hole-square-10"],
+2: ["Empty", "hill-corner-16", "corner", "side", "start", "split-start", "narrow-square", "hill-square", "round-corner-a", "ramp-square-10", "split-start-10", "split-10", "hole-square-16", "straight", "square-corner-a-16", "hole-square", "tunnel-wide", "round-corner-c", "round-corner-c-16", "spline-default", "hole-round-10", "straight-10", "gap-10", "hill-corner", "obstacle-block", "hole-square-10"],
+3: ["Empty", "hill-corner-10", "corner-22", "side-10", "start", "split-start", "narrow-square", "hill-square", "round-corner-a-10", "ramp-square-10", "split-start-10", "split-10", "skew-corner-10", "straight", "square-corner-a-10", "hole-square", "tunnel-wide", "round-corner-c-22", "round-corner-c-10", "spline-default", "hole-round-10", "straight-10", "gap-10", "hill-corner-22", "obstacle-block", "hole-square-10"],
+4: ["Empty", "corner", "corner-22", "start", "round-corner-a", "hole-square-16", "straight-22", "hole-square", "round-corner-c-22", "round-corner-c", "hill-corner"],
+5: ["Empty", "hill-corner-10", "hill-corner-16", "side-16", "round-corner-a-10", "skew-corner-10", "hole-square-16", "square-corner-a-10", "straight-22", "square-corner-a-16", "round-corner-c-16", "round-corner-c-10", "hole-round-10", "hole-square-10"]
 },
 "corner": {
 0: ["Empty"],
@@ -22,71 +22,71 @@ rules = {
 4: ["side"],
 5: ["Empty"]
 },
-"corner-270.0": {
+"corner-22": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["open"],
-4: ["side-180.0"],
+4: ["side-10"],
 5: ["Empty"]
 },
-"gap-180.0": {
+"gap-10": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["hill-corner-180.0"],
-5: ["straight-180.0"]
+4: ["hill-corner-10"],
+5: ["straight-10"]
 },
 "hill-corner": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["hill-corner-180.0"],
+2: ["hill-corner-10"],
 3: ["Empty"],
-4: ["hill-corner-90.0"],
+4: ["hill-corner-16"],
 5: ["Empty"]
 },
-"hill-corner-180.0": {
+"hill-corner-10": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
-3: ["side-90.0", "hill-corner"],
-4: ["Empty", "hill-corner-270.0"],
-5: ["side-180.0", "gap-180.0"]
+3: ["side-16", "hill-corner"],
+4: ["Empty", "hill-corner-22"],
+5: ["side-10", "gap-10"]
 },
-"hill-corner-270.0": {
+"hill-corner-16": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["Empty"],
-3: ["hill-corner-90.0"],
-4: ["hill-square"],
-5: ["hill-corner-180.0"]
-},
-"hill-corner-90.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["side-90.0", "hill-corner-270.0"],
+2: ["side-16", "hill-corner-22"],
 3: ["Empty"],
 4: ["Empty"],
 5: ["side", "hill-corner"]
+},
+"hill-corner-22": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["hill-corner-16"],
+4: ["hill-square"],
+5: ["hill-corner-10"]
 },
 "hill-square": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["round-corner-a-180.0", "obstacle-block"],
-5: ["start", "hill-corner-270.0"]
+4: ["round-corner-a-10", "obstacle-block"],
+5: ["start", "hill-corner-22"]
 },
 "hole-open": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["side-180.0"],
+2: ["side-10"],
 3: ["side"],
-4: ["side-90.0"],
+4: ["side-16"],
 5: ["open"]
 },
-"hole-round-180.0": {
+"hole-round-10": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
@@ -99,10 +99,10 @@ rules = {
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["square-corner-a-90.0"],
+4: ["square-corner-a-16"],
 5: ["Empty"]
 },
-"hole-square-180.0": {
+"hole-square-10": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
@@ -110,10 +110,10 @@ rules = {
 4: ["Empty"],
 5: ["obstacle-block"]
 },
-"hole-square-90.0": {
+"hole-square-16": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["skew-corner-180.0"],
+2: ["skew-corner-10"],
 3: ["Empty"],
 4: ["Empty"],
 5: ["Empty"]
@@ -131,13 +131,13 @@ rules = {
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["hole-square-180.0"],
+4: ["hole-square-10"],
 5: ["hill-square"]
 },
 "obstacle-diamond": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["round-corner-c-270.0"],
+2: ["round-corner-c-22"],
 3: ["round-corner-c"],
 4: ["walls-to-open"],
 5: ["narrow-square"]
@@ -145,28 +145,28 @@ rules = {
 "open": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["corner-270.0"],
+2: ["corner-22"],
 3: ["corner"],
 4: ["hole-open"],
 5: ["narrow-square"]
 },
-"ramp-square-180.0": {
+"ramp-square-10": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["split-start-180.0"],
+4: ["split-start-10"],
 5: ["round-corner-a"]
 },
 "round-corner-a": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["round-corner-a-180.0"],
+2: ["round-corner-a-10"],
 3: ["Empty"],
-4: ["round-corner-a-180.0", "ramp-square-180.0"],
+4: ["round-corner-a-10", "ramp-square-10"],
 5: ["Empty"]
 },
-"round-corner-a-180.0": {
+"round-corner-a-10": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
@@ -179,26 +179,18 @@ rules = {
 1: ["Empty"],
 2: ["obstacle-diamond"],
 3: ["Empty"],
-4: ["round-corner-c-90.0"],
+4: ["round-corner-c-16"],
 5: ["Empty"]
 },
-"round-corner-c-180.0": {
+"round-corner-c-10": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["walls-to-open"],
 4: ["Empty"],
-5: ["round-corner-c-270.0"]
+5: ["round-corner-c-22"]
 },
-"round-corner-c-270.0": {
-0: ["Empty"],
-1: ["Empty"],
-2: ["Empty"],
-3: ["obstacle-diamond"],
-4: ["round-corner-c-180.0"],
-5: ["Empty"]
-},
-"round-corner-c-90.0": {
+"round-corner-c-16": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["walls-to-open"],
@@ -206,35 +198,43 @@ rules = {
 4: ["Empty"],
 5: ["round-corner-c"]
 },
+"round-corner-c-22": {
+0: ["Empty"],
+1: ["Empty"],
+2: ["Empty"],
+3: ["obstacle-diamond"],
+4: ["round-corner-c-10"],
+5: ["Empty"]
+},
 "side": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["hole-open"],
 3: ["Empty"],
-4: ["hill-corner-90.0"],
+4: ["hill-corner-16"],
 5: ["corner"]
 },
-"side-180.0": {
+"side-10": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["hole-open"],
-4: ["hill-corner-180.0"],
-5: ["corner-270.0"]
+4: ["hill-corner-10"],
+5: ["corner-22"]
 },
-"side-90.0": {
+"side-16": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["hill-corner-180.0"],
-3: ["hill-corner-90.0"],
+2: ["hill-corner-10"],
+3: ["hill-corner-16"],
 4: ["Empty"],
 5: ["hole-open"]
 },
-"skew-corner-180.0": {
+"skew-corner-10": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
-3: ["hole-square-90.0"],
+3: ["hole-square-16"],
 4: ["Empty"],
 5: ["split-start"]
 },
@@ -243,45 +243,45 @@ rules = {
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["hole-round-180.0"],
+4: ["hole-round-10"],
 5: ["walls-to-open"]
 },
-"split-180.0": {
+"split-10": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
 4: ["split-start"],
-5: ["split-start-180.0"]
+5: ["split-start-10"]
 },
 "split-start": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["narrow-square", "skew-corner-180.0"],
-5: ["start", "split-180.0"]
+4: ["narrow-square", "skew-corner-10"],
+5: ["start", "split-10"]
 },
-"split-start-180.0": {
+"split-start-10": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["split-180.0"],
-5: ["ramp-square-180.0"]
+4: ["split-10"],
+5: ["ramp-square-10"]
 },
-"square-corner-a-180.0": {
+"square-corner-a-10": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
-3: ["straight-270.0"],
+3: ["straight-22"],
 4: ["Empty"],
 5: ["straight"]
 },
-"square-corner-a-90.0": {
+"square-corner-a-16": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["straight-270.0"],
+2: ["straight-22"],
 3: ["Empty"],
 4: ["Empty"],
 5: ["hole-square"]
@@ -291,7 +291,7 @@ rules = {
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["split-start", "hill-square", "straight", "straight-180.0"],
+4: ["split-start", "hill-square", "straight", "straight-10"],
 5: ["Empty"]
 },
 "straight": {
@@ -299,22 +299,22 @@ rules = {
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["square-corner-a-180.0", "straight", "tunnel-wide"],
-5: ["start", "straight"]
+4: ["square-corner-a-10", "tunnel-wide"],
+5: ["start"]
 },
-"straight-180.0": {
+"straight-10": {
 0: ["Empty"],
 1: ["Empty"],
 2: ["Empty"],
 3: ["Empty"],
-4: ["straight-180.0", "gap-180.0"],
-5: ["straight-180.0", "start"]
+4: ["gap-10"],
+5: ["start"]
 },
-"straight-270.0": {
+"straight-22": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["square-corner-a-180.0"],
-3: ["square-corner-a-90.0"],
+2: ["square-corner-a-10"],
+3: ["square-corner-a-16"],
 4: ["Empty"],
 5: ["Empty"]
 },
@@ -329,8 +329,8 @@ rules = {
 "walls-to-open": {
 0: ["Empty"],
 1: ["Empty"],
-2: ["round-corner-c-180.0"],
-3: ["round-corner-c-90.0"],
+2: ["round-corner-c-10"],
+3: ["round-corner-c-16"],
 4: ["spline-default"],
 5: ["obstacle-diamond"]
 }
@@ -338,43 +338,43 @@ rules = {
 mesh_library = ExtResource("1_ux53u")
 orientations = {
 "corner": 0,
-"corner-270.0": 22,
-"gap-180.0": 10,
+"corner-22": 22,
+"gap-10": 10,
 "hill-corner": 0,
-"hill-corner-180.0": 10,
-"hill-corner-270.0": 22,
-"hill-corner-90.0": 16,
+"hill-corner-10": 10,
+"hill-corner-16": 16,
+"hill-corner-22": 22,
 "hill-square": 0,
 "hole-open": 16,
-"hole-round-180.0": 10,
+"hole-round-10": 10,
 "hole-square": 0,
-"hole-square-180.0": 10,
-"hole-square-90.0": 16,
+"hole-square-10": 10,
+"hole-square-16": 16,
 "narrow-square": 0,
 "obstacle-block": 0,
 "obstacle-diamond": 0,
 "open": 10,
-"ramp-square-180.0": 10,
+"ramp-square-10": 10,
 "round-corner-a": 0,
-"round-corner-a-180.0": 10,
+"round-corner-a-10": 10,
 "round-corner-c": 0,
-"round-corner-c-180.0": 10,
-"round-corner-c-270.0": 22,
-"round-corner-c-90.0": 16,
+"round-corner-c-10": 10,
+"round-corner-c-16": 16,
+"round-corner-c-22": 22,
 "side": 0,
-"side-180.0": 10,
-"side-90.0": 16,
-"skew-corner-180.0": 10,
+"side-10": 10,
+"side-16": 16,
+"skew-corner-10": 10,
 "spline-default": 0,
-"split-180.0": 10,
+"split-10": 10,
 "split-start": 0,
-"split-start-180.0": 10,
-"square-corner-a-180.0": 10,
-"square-corner-a-90.0": 16,
+"split-start-10": 10,
+"square-corner-a-10": 10,
+"square-corner-a-16": 16,
 "start": 0,
 "straight": 0,
-"straight-180.0": 10,
-"straight-270.0": 22,
+"straight-10": 10,
+"straight-22": 22,
 "tunnel-wide": 0,
 "walls-to-open": 0
 }
