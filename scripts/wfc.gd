@@ -18,9 +18,10 @@ var propogate_check_directions: Dictionary[CheckDirections, Vector3i]= {
 
 # position of tile along with array of available tiles
 var tiles: Dictionary[Vector3i, Array] = {}
+var frontier_tiles: Array[Vector3i] = [] # stores position of tiles availbe to collapse
 var last_collapsed_tile: Vector3i
 var smallest_collapse_size: int = 1000
-var smallest_collapses: Array[Vector3i]
+var smallest_collapses: Array[Vector3i] = [] # stores positions of all tiles availble to collapse with the smallest entropy
 var max_iter: int = 200
 var iter: int = 0
 
@@ -45,6 +46,8 @@ func wfc() -> void:
 
 	
 	tiles.clear()
+	frontier_tiles.clear()
+	smallest_collapses.clear()
 	iter = 0
 	max_iter = grid_size.x * grid_size.y * grid_size.z
 	initialize()
@@ -56,6 +59,8 @@ func wfc() -> void:
 
 
 func attempt_wfc() -> bool:
+	smallest_collapses.clear()
+	frontier_tiles.clear()
 	tiles.clear()
 	iter = 0
 	max_iter = grid_size.x * grid_size.y * grid_size.z
@@ -85,7 +90,7 @@ func collapse_wave_function() -> bool:
 		
 		update_smallest_collapses()
 		
-		if smallest_collapses.is_empty():
+		if frontier_tiles.is_empty() or smallest_collapses.is_empty():
 			print("Fully collapsed after ", iter, " iterations")
 			fully_collapsed = true
 			continue
@@ -115,7 +120,7 @@ func update_smallest_collapses() -> void:
 	smallest_collapses.clear()
 	smallest_collapse_size = 10000
 	
-	for pos in tiles.keys():
+	for pos in frontier_tiles:
 		var tile_count = tiles[pos].size()
 		
 		if tile_count == 0:
@@ -174,6 +179,14 @@ func collapse(index: Vector3i) -> void:
 	var size = tiles[index].size()
 	var collapsed_tile = tiles[index][randi_range(0, size - 1)]
 	tiles[index] = [collapsed_tile]
+	
+	if collapsed_tile == "Empty": return
+	
+	for direction in CheckDirections.values():
+		var neighbor: Vector3i = index + propogate_check_directions[direction]
+		if is_collapsed(neighbor): continue
+		
+		frontier_tiles.append(neighbor)
 
 
 #endregion
@@ -233,6 +246,10 @@ func array_unique(array: Array) -> Array:
 			unique.append(item)
 	return unique
 
+
+
+
+
 func intersect_arrays(array1: Array, array2: Array) -> Array:
 	var result: Array = []
 	for item in array1:
@@ -240,19 +257,28 @@ func intersect_arrays(array1: Array, array2: Array) -> Array:
 			result.append(item)
 	return result
 
+
+
+
+
 func random_vector3i(bounds: Vector3i) -> Vector3i:
 	return Vector3i(randi_range(0, grid_size.x - 1), randi_range(0, grid_size.y - 1), randi_range(0, grid_size.z - 1))
-	
-func count_uncollapsed() -> int:
-	var count = 0
-	for pos in tiles.keys():
-		if tiles[pos].size() > 1:
-			count += 1
-	return count
+
+
+
+
+func is_collapsed(pos: Vector3i) -> bool:
+	if is_position_out_of_bounds(pos):
+		return true
+	return tiles[pos].size() <= 1
+
+
+
 
 
 func pick_rand_start_tile() -> Vector3i:
 	var start_rand_pos: Vector3i = random_vector3i(grid_size)
+	start_rand_pos = Vector3i(3, 0, 19)
 	var choices = tiles[start_rand_pos].duplicate()
 	if choices.has("Empty") and choices.size() > 1:
 		choices.erase("Empty")
@@ -261,4 +287,13 @@ func pick_rand_start_tile() -> Vector3i:
 	last_collapsed_tile = start_rand_pos
 	
 	tiles[start_rand_pos] = ["start"]
+	
+	
+	for direction in CheckDirections.values():
+		var neighbor: Vector3i = start_rand_pos + propogate_check_directions[direction]
+		if is_collapsed(neighbor): continue
+		
+		frontier_tiles.append(neighbor)
+	
+	
 	return start_rand_pos
